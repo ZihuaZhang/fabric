@@ -39,7 +39,7 @@ RUN curl -sL https://go.dev/dl/go${GO_VER}.${TARGETOS}-${TARGETARCH}.tar.gz | ta
 ENV PATH="/usr/local/go/bin:$PATH"
 
 ADD . .
-
+RUN go env -w GOPROXY=https://goproxy.cn,direct
 RUN make peer GO_TAGS=${GO_TAGS} FABRIC_VER=${FABRIC_VER}
 RUN make ccaasbuilder
 
