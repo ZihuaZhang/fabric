@@ -14,7 +14,7 @@ import (
 	"math/rand"
 	"sync"
 
-	"github.com/hyperledger/fabric/common/flogging"
+	"github.com/ZihuaZhang/fabric/common/flogging"
 	"github.com/pkg/errors"
 )
 

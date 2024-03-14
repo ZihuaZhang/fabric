@@ -16,13 +16,13 @@ import (
 	"fmt"
 	"strings"
 
+	m "github.com/ZihuaZhang/fabric-protos-go/msp"
+	"github.com/ZihuaZhang/fabric/bccsp"
+	"github.com/ZihuaZhang/fabric/bccsp/factory"
+	"github.com/ZihuaZhang/fabric/bccsp/signer"
+	"github.com/ZihuaZhang/fabric/bccsp/sw"
+	"github.com/ZihuaZhang/fabric/bccsp/utils"
 	"github.com/golang/protobuf/proto"
-	m "github.com/hyperledger/fabric-protos-go/msp"
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/bccsp/factory"
-	"github.com/hyperledger/fabric/bccsp/signer"
-	"github.com/hyperledger/fabric/bccsp/sw"
-	"github.com/hyperledger/fabric/bccsp/utils"
 	"github.com/pkg/errors"
 )
 

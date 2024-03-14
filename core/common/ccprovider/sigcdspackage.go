@@ -21,12 +21,12 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/bccsp"
+	"github.com/ZihuaZhang/fabric/bccsp/factory"
+	"github.com/ZihuaZhang/fabric/core/common/ccpackage"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/common"
-	pb "github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/bccsp/factory"
-	"github.com/hyperledger/fabric/core/common/ccpackage"
 )
 
 // ----- SignedCDSData ------

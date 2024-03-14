@@ -7,11 +7,11 @@ SPDX-License-Identifier: Apache-2.0
 package acl
 
 import (
-	"github.com/hyperledger/fabric-protos-go/msp"
-	"github.com/hyperledger/fabric/common/channelconfig"
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/common/policies"
-	"github.com/hyperledger/fabric/protoutil"
+	"github.com/ZihuaZhang/fabric-protos-go/msp"
+	"github.com/ZihuaZhang/fabric/common/channelconfig"
+	"github.com/ZihuaZhang/fabric/common/flogging"
+	"github.com/ZihuaZhang/fabric/common/policies"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/pkg/errors"
 )
 

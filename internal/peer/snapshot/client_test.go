@@ -9,8 +9,8 @@ package snapshot
 import (
 	"testing"
 
-	pb "github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/internal/peer/common"
+	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/internal/peer/common"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/require"
 )

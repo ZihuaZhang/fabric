@@ -9,8 +9,8 @@ package kvledger
 import (
 	"time"
 
-	"github.com/hyperledger/fabric/common/metrics"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/validation"
+	"github.com/ZihuaZhang/fabric/common/metrics"
+	"github.com/ZihuaZhang/fabric/core/ledger/kvledger/txmgmt/validation"
 )
 
 type stats struct {

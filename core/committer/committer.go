@@ -17,8 +17,8 @@ limitations under the License.
 package committer
 
 import (
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric/core/ledger"
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric/core/ledger"
 )
 
 // Committer is the interface supported by committers

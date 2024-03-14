@@ -11,13 +11,13 @@ import (
 	"net"
 	"strconv"
 
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric-protos-go/discovery"
+	"github.com/ZihuaZhang/fabric-protos-go/msp"
+	"github.com/ZihuaZhang/fabric/common/channelconfig"
+	"github.com/ZihuaZhang/fabric/common/flogging"
+	mspconstants "github.com/ZihuaZhang/fabric/msp"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric-protos-go/discovery"
-	"github.com/hyperledger/fabric-protos-go/msp"
-	"github.com/hyperledger/fabric/common/channelconfig"
-	"github.com/hyperledger/fabric/common/flogging"
-	mspconstants "github.com/hyperledger/fabric/msp"
 	"github.com/pkg/errors"
 )
 

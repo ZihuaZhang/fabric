@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 package orderers
 
 import (
-	"github.com/hyperledger/fabric/common/flogging"
+	"github.com/ZihuaZhang/fabric/common/flogging"
 )
 
 type ConnectionSourcer interface {

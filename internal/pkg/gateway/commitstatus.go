@@ -9,10 +9,10 @@ package gateway
 import (
 	"context"
 
+	gp "github.com/ZihuaZhang/fabric-protos-go/gateway"
+	"github.com/ZihuaZhang/fabric/core/aclmgmt/resources"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
-	gp "github.com/hyperledger/fabric-protos-go/gateway"
-	"github.com/hyperledger/fabric/core/aclmgmt/resources"
-	"github.com/hyperledger/fabric/protoutil"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

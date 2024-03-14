@@ -9,12 +9,12 @@ package channelconfig
 import (
 	"time"
 
-	cb "github.com/hyperledger/fabric-protos-go/common"
-	ab "github.com/hyperledger/fabric-protos-go/orderer"
-	pb "github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/common/configtx"
-	"github.com/hyperledger/fabric/common/policies"
-	"github.com/hyperledger/fabric/msp"
+	cb "github.com/ZihuaZhang/fabric-protos-go/common"
+	ab "github.com/ZihuaZhang/fabric-protos-go/orderer"
+	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/common/configtx"
+	"github.com/ZihuaZhang/fabric/common/policies"
+	"github.com/ZihuaZhang/fabric/msp"
 )
 
 // Org stores the common organizational config

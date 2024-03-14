@@ -10,12 +10,12 @@ import (
 	"testing"
 
 	protos "github.com/SmartBFT-Go/consensus/smartbftprotos"
-	cb "github.com/hyperledger/fabric-protos-go/common"
-	ab "github.com/hyperledger/fabric-protos-go/orderer"
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/orderer/consensus/smartbft"
-	"github.com/hyperledger/fabric/orderer/consensus/smartbft/mocks"
-	"github.com/hyperledger/fabric/protoutil"
+	cb "github.com/ZihuaZhang/fabric-protos-go/common"
+	ab "github.com/ZihuaZhang/fabric-protos-go/orderer"
+	"github.com/ZihuaZhang/fabric/common/flogging"
+	"github.com/ZihuaZhang/fabric/orderer/consensus/smartbft"
+	"github.com/ZihuaZhang/fabric/orderer/consensus/smartbft/mocks"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )

@@ -10,10 +10,10 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/ZihuaZhang/fabric/core/dispatcher"
+	"github.com/ZihuaZhang/fabric/core/dispatcher/mock"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes/timestamp"
-	"github.com/hyperledger/fabric/core/dispatcher"
-	"github.com/hyperledger/fabric/core/dispatcher/mock"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"google.golang.org/protobuf/types/known/timestamppb"

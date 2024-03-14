@@ -14,33 +14,33 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric-protos-go/ledger/rwset"
-	"github.com/hyperledger/fabric-protos-go/ledger/rwset/kvrwset"
-	protosmsp "github.com/hyperledger/fabric-protos-go/msp"
-	"github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/bccsp/sw"
-	commonerrors "github.com/hyperledger/fabric/common/errors"
-	"github.com/hyperledger/fabric/common/policydsl"
-	"github.com/hyperledger/fabric/common/semaphore"
-	"github.com/hyperledger/fabric/core/committer/txvalidator"
-	tmocks "github.com/hyperledger/fabric/core/committer/txvalidator/mocks"
-	txvalidatorplugin "github.com/hyperledger/fabric/core/committer/txvalidator/plugin"
-	txvalidatorv20 "github.com/hyperledger/fabric/core/committer/txvalidator/v20"
-	txvalidatormocks "github.com/hyperledger/fabric/core/committer/txvalidator/v20/mocks"
-	plugindispatchermocks "github.com/hyperledger/fabric/core/committer/txvalidator/v20/plugindispatcher/mocks"
-	ccp "github.com/hyperledger/fabric/core/common/ccprovider"
-	validation "github.com/hyperledger/fabric/core/handlers/validation/api"
-	"github.com/hyperledger/fabric/core/handlers/validation/builtin"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/rwsetutil"
-	mocktxvalidator "github.com/hyperledger/fabric/core/mocks/txvalidator"
-	"github.com/hyperledger/fabric/core/scc/lscc"
-	supportmocks "github.com/hyperledger/fabric/discovery/support/mocks"
-	"github.com/hyperledger/fabric/internal/pkg/txflags"
-	"github.com/hyperledger/fabric/msp"
-	"github.com/hyperledger/fabric/msp/mgmt"
-	msptesttools "github.com/hyperledger/fabric/msp/mgmt/testtools"
-	"github.com/hyperledger/fabric/protoutil"
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset"
+	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset/kvrwset"
+	protosmsp "github.com/ZihuaZhang/fabric-protos-go/msp"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/bccsp/sw"
+	commonerrors "github.com/ZihuaZhang/fabric/common/errors"
+	"github.com/ZihuaZhang/fabric/common/policydsl"
+	"github.com/ZihuaZhang/fabric/common/semaphore"
+	"github.com/ZihuaZhang/fabric/core/committer/txvalidator"
+	tmocks "github.com/ZihuaZhang/fabric/core/committer/txvalidator/mocks"
+	txvalidatorplugin "github.com/ZihuaZhang/fabric/core/committer/txvalidator/plugin"
+	txvalidatorv20 "github.com/ZihuaZhang/fabric/core/committer/txvalidator/v20"
+	txvalidatormocks "github.com/ZihuaZhang/fabric/core/committer/txvalidator/v20/mocks"
+	plugindispatchermocks "github.com/ZihuaZhang/fabric/core/committer/txvalidator/v20/plugindispatcher/mocks"
+	ccp "github.com/ZihuaZhang/fabric/core/common/ccprovider"
+	validation "github.com/ZihuaZhang/fabric/core/handlers/validation/api"
+	"github.com/ZihuaZhang/fabric/core/handlers/validation/builtin"
+	"github.com/ZihuaZhang/fabric/core/ledger/kvledger/txmgmt/rwsetutil"
+	mocktxvalidator "github.com/ZihuaZhang/fabric/core/mocks/txvalidator"
+	"github.com/ZihuaZhang/fabric/core/scc/lscc"
+	supportmocks "github.com/ZihuaZhang/fabric/discovery/support/mocks"
+	"github.com/ZihuaZhang/fabric/internal/pkg/txflags"
+	"github.com/ZihuaZhang/fabric/msp"
+	"github.com/ZihuaZhang/fabric/msp/mgmt"
+	msptesttools "github.com/ZihuaZhang/fabric/msp/mgmt/testtools"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 )
@@ -99,7 +99,7 @@ func getEnvWithType(ccID string, event []byte, res []byte, pType common.HeaderTy
 	require.NoError(t, err)
 
 	// assemble a transaction from that proposal and endorsement
-	tx, err := protoutil.CreateSignedTx(prop, signer, presp)
+	tx, err := protoutil.CreateSignedTx(nil, prop, signer, presp)
 	require.NoError(t, err)
 
 	return tx
@@ -132,7 +132,7 @@ func getEnvWithSigner(ccID string, event []byte, res []byte, sig msp.SigningIden
 	require.NoError(t, err)
 
 	// assemble a transaction from that proposal and endorsement
-	tx, err := protoutil.CreateSignedTx(prop, sig, presp)
+	tx, err := protoutil.CreateSignedTx(nil, prop, sig, presp)
 	require.NoError(t, err)
 
 	return tx

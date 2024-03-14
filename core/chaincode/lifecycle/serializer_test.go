@@ -12,12 +12,12 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
+	lb "github.com/ZihuaZhang/fabric-protos-go/peer/lifecycle"
+	"github.com/ZihuaZhang/fabric/common/util"
+	"github.com/ZihuaZhang/fabric/core/chaincode/lifecycle"
+	"github.com/ZihuaZhang/fabric/core/chaincode/lifecycle/mock"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
-	lb "github.com/hyperledger/fabric-protos-go/peer/lifecycle"
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/core/chaincode/lifecycle"
-	"github.com/hyperledger/fabric/core/chaincode/lifecycle/mock"
-	"github.com/hyperledger/fabric/protoutil"
 )
 
 var _ = Describe("Serializer", func() {

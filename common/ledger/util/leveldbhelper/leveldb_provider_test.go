@@ -11,10 +11,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/hyperledger/fabric/common/ledger/dataformat"
+	"github.com/ZihuaZhang/fabric/common/ledger/dataformat"
 	"github.com/syndtr/goleveldb/leveldb"
 
-	"github.com/hyperledger/fabric/common/flogging"
+	"github.com/ZihuaZhang/fabric/common/flogging"
 	"github.com/stretchr/testify/require"
 )
 

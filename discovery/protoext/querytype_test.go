@@ -10,8 +10,8 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/hyperledger/fabric-protos-go/discovery"
-	"github.com/hyperledger/fabric/discovery/protoext"
+	"github.com/ZihuaZhang/fabric-protos-go/discovery"
+	"github.com/ZihuaZhang/fabric/discovery/protoext"
 	"github.com/stretchr/testify/require"
 )
 

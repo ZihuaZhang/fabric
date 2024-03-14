@@ -10,11 +10,11 @@ import (
 	"sync"
 	"time"
 
-	bccsp "github.com/hyperledger/fabric/bccsp/factory"
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/common/viperutil"
-	coreconfig "github.com/hyperledger/fabric/core/config"
-	"github.com/hyperledger/fabric/internal/pkg/comm"
+	bccsp "github.com/ZihuaZhang/fabric/bccsp/factory"
+	"github.com/ZihuaZhang/fabric/common/flogging"
+	"github.com/ZihuaZhang/fabric/common/viperutil"
+	coreconfig "github.com/ZihuaZhang/fabric/core/config"
+	"github.com/ZihuaZhang/fabric/internal/pkg/comm"
 )
 
 var logger = flogging.MustGetLogger("localconfig")

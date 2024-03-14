@@ -9,12 +9,12 @@ package endorsertx_test
 import (
 	"encoding/hex"
 
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/common/configtx"
-	endorsertx "github.com/hyperledger/fabric/core/tx/endorser"
-	"github.com/hyperledger/fabric/pkg/tx"
-	"github.com/hyperledger/fabric/protoutil"
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/common/configtx"
+	endorsertx "github.com/ZihuaZhang/fabric/core/tx/endorser"
+	"github.com/ZihuaZhang/fabric/pkg/tx"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )

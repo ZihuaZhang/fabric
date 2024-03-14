@@ -12,7 +12,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/hyperledger/fabric/common/flogging"
+	"github.com/ZihuaZhang/fabric/common/flogging"
 	"github.com/pkg/errors"
 )
 

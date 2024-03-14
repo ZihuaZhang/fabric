@@ -9,13 +9,13 @@ package chaincode_test
 import (
 	"testing"
 
-	"github.com/hyperledger/fabric/common/channelconfig"
-	commonledger "github.com/hyperledger/fabric/common/ledger"
-	"github.com/hyperledger/fabric/common/policies"
-	"github.com/hyperledger/fabric/core/chaincode"
-	"github.com/hyperledger/fabric/core/common/privdata"
-	"github.com/hyperledger/fabric/core/container/ccintf"
-	"github.com/hyperledger/fabric/core/ledger"
+	"github.com/ZihuaZhang/fabric/common/channelconfig"
+	commonledger "github.com/ZihuaZhang/fabric/common/ledger"
+	"github.com/ZihuaZhang/fabric/common/policies"
+	"github.com/ZihuaZhang/fabric/core/chaincode"
+	"github.com/ZihuaZhang/fabric/core/common/privdata"
+	"github.com/ZihuaZhang/fabric/core/container/ccintf"
+	"github.com/ZihuaZhang/fabric/core/ledger"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )

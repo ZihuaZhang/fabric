@@ -11,15 +11,15 @@ import (
 	"math"
 	"os"
 
+	cb "github.com/ZihuaZhang/fabric-protos-go/common"
+	mspprotos "github.com/ZihuaZhang/fabric-protos-go/msp"
+	ab "github.com/ZihuaZhang/fabric-protos-go/orderer"
+	"github.com/ZihuaZhang/fabric-protos-go/orderer/etcdraft"
+	"github.com/ZihuaZhang/fabric-protos-go/orderer/smartbft"
+	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/bccsp"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
-	cb "github.com/hyperledger/fabric-protos-go/common"
-	mspprotos "github.com/hyperledger/fabric-protos-go/msp"
-	ab "github.com/hyperledger/fabric-protos-go/orderer"
-	"github.com/hyperledger/fabric-protos-go/orderer/etcdraft"
-	"github.com/hyperledger/fabric-protos-go/orderer/smartbft"
-	pb "github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/protoutil"
 	"github.com/pkg/errors"
 )
 

@@ -10,8 +10,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/hyperledger/fabric/common/crypto/tlsgen"
-	"github.com/hyperledger/fabric/internal/pkg/comm"
+	"github.com/ZihuaZhang/fabric/common/crypto/tlsgen"
+	"github.com/ZihuaZhang/fabric/internal/pkg/comm"
 	"github.com/pkg/errors"
 )
 

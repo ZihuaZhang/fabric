@@ -9,9 +9,9 @@ package server
 import (
 	"sync"
 
-	"github.com/hyperledger/fabric/common/channelconfig"
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/common/policies"
+	"github.com/ZihuaZhang/fabric/common/channelconfig"
+	"github.com/ZihuaZhang/fabric/common/flogging"
+	"github.com/ZihuaZhang/fabric/common/policies"
 )
 
 type DynamicPolicyManagerRegistry struct {

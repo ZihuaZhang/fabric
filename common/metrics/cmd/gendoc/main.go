@@ -12,7 +12,7 @@ import (
 	"os"
 	"text/template"
 
-	"github.com/hyperledger/fabric/common/metrics/gendoc"
+	"github.com/ZihuaZhang/fabric/common/metrics/gendoc"
 	"golang.org/x/tools/go/packages"
 )
 
@@ -31,7 +31,7 @@ func main() {
 
 	patterns := flag.Args()
 	if len(patterns) == 0 {
-		patterns = []string{"github.com/hyperledger/fabric/..."}
+		patterns = []string{"github.com/ZihuaZhang/fabric/..."}
 	}
 
 	mode := packages.NeedName | packages.NeedFiles | packages.NeedCompiledGoFiles | packages.NeedImports | packages.NeedSyntax | packages.NeedTypesInfo

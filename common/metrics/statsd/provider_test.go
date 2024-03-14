@@ -11,9 +11,9 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/ZihuaZhang/fabric/common/metrics"
+	"github.com/ZihuaZhang/fabric/common/metrics/statsd"
 	kitstatsd "github.com/go-kit/kit/metrics/statsd"
-	"github.com/hyperledger/fabric/common/metrics"
-	"github.com/hyperledger/fabric/common/metrics/statsd"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )

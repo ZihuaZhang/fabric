@@ -9,8 +9,8 @@ package blocksprovider
 import (
 	"context"
 
-	"github.com/hyperledger/fabric-protos-go/orderer"
-	"github.com/hyperledger/fabric/internal/pkg/comm"
+	"github.com/ZihuaZhang/fabric-protos-go/orderer"
+	"github.com/ZihuaZhang/fabric/internal/pkg/comm"
 	"google.golang.org/grpc"
 )
 

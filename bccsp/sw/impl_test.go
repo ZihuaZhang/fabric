@@ -25,10 +25,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/bccsp/signer"
-	"github.com/hyperledger/fabric/bccsp/sw/mocks"
-	"github.com/hyperledger/fabric/bccsp/utils"
+	"github.com/ZihuaZhang/fabric/bccsp"
+	"github.com/ZihuaZhang/fabric/bccsp/signer"
+	"github.com/ZihuaZhang/fabric/bccsp/sw/mocks"
+	"github.com/ZihuaZhang/fabric/bccsp/utils"
 	"github.com/stretchr/testify/require"
 	"golang.org/x/crypto/sha3"
 )

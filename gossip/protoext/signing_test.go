@@ -11,10 +11,10 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/ZihuaZhang/fabric-protos-go/gossip"
+	"github.com/ZihuaZhang/fabric/gossip/protoext"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/gossip"
-	"github.com/hyperledger/fabric/gossip/protoext"
-	"github.com/hyperledger/fabric/protoutil"
 	"github.com/stretchr/testify/require"
 )
 

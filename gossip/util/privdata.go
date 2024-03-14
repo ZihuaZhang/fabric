@@ -10,12 +10,12 @@ import (
 	"encoding/hex"
 	"fmt"
 
+	"github.com/ZihuaZhang/fabric-protos-go/gossip"
+	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/common/util"
+	"github.com/ZihuaZhang/fabric/core/ledger"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/gossip"
-	"github.com/hyperledger/fabric-protos-go/ledger/rwset"
-	"github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/core/ledger"
 	"github.com/pkg/errors"
 )
 

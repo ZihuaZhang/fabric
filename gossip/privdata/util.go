@@ -9,15 +9,15 @@ package privdata
 import (
 	"fmt"
 
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset"
+	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset/kvrwset"
+	"github.com/ZihuaZhang/fabric-protos-go/msp"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/core/ledger"
+	"github.com/ZihuaZhang/fabric/core/ledger/kvledger/txmgmt/rwsetutil"
+	privdatacommon "github.com/ZihuaZhang/fabric/gossip/privdata/common"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric-protos-go/ledger/rwset"
-	"github.com/hyperledger/fabric-protos-go/ledger/rwset/kvrwset"
-	"github.com/hyperledger/fabric-protos-go/msp"
-	"github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/rwsetutil"
-	privdatacommon "github.com/hyperledger/fabric/gossip/privdata/common"
 )
 
 type txValidationFlags []uint8

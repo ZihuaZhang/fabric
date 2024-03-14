@@ -15,13 +15,13 @@ import (
 	"path"
 	"strings"
 
+	cb "github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric/common/configtx"
+	"github.com/ZihuaZhang/fabric/common/flogging"
+	"github.com/ZihuaZhang/fabric/orderer/common/localconfig"
+	"github.com/ZihuaZhang/fabric/orderer/common/types"
 	"github.com/golang/protobuf/proto"
 	"github.com/gorilla/mux"
-	cb "github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric/common/configtx"
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/orderer/common/localconfig"
-	"github.com/hyperledger/fabric/orderer/common/types"
 	"github.com/pkg/errors"
 )
 

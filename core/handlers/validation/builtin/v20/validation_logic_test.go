@@ -11,20 +11,20 @@ import (
 	"os"
 	"testing"
 
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/bccsp/sw"
-	commonerrors "github.com/hyperledger/fabric/common/errors"
-	"github.com/hyperledger/fabric/common/policydsl"
-	"github.com/hyperledger/fabric/core/committer/txvalidator/v14"
-	"github.com/hyperledger/fabric/core/common/ccprovider"
-	validation "github.com/hyperledger/fabric/core/handlers/validation/api/capabilities"
-	vs "github.com/hyperledger/fabric/core/handlers/validation/api/state"
-	"github.com/hyperledger/fabric/core/handlers/validation/builtin/v20/mocks"
-	"github.com/hyperledger/fabric/msp"
-	mspmgmt "github.com/hyperledger/fabric/msp/mgmt"
-	msptesttools "github.com/hyperledger/fabric/msp/mgmt/testtools"
-	"github.com/hyperledger/fabric/protoutil"
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/bccsp/sw"
+	commonerrors "github.com/ZihuaZhang/fabric/common/errors"
+	"github.com/ZihuaZhang/fabric/common/policydsl"
+	"github.com/ZihuaZhang/fabric/core/committer/txvalidator/v14"
+	"github.com/ZihuaZhang/fabric/core/common/ccprovider"
+	validation "github.com/ZihuaZhang/fabric/core/handlers/validation/api/capabilities"
+	vs "github.com/ZihuaZhang/fabric/core/handlers/validation/api/state"
+	"github.com/ZihuaZhang/fabric/core/handlers/validation/builtin/v20/mocks"
+	"github.com/ZihuaZhang/fabric/msp"
+	mspmgmt "github.com/ZihuaZhang/fabric/msp/mgmt"
+	msptesttools "github.com/ZihuaZhang/fabric/msp/mgmt/testtools"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 )
@@ -63,9 +63,9 @@ func createTx(endorsedByDuplicatedIdentity bool) (*common.Envelope, error) {
 
 	var env *common.Envelope
 	if endorsedByDuplicatedIdentity {
-		env, err = protoutil.CreateSignedTx(prop, id, presp, presp)
+		env, err = protoutil.CreateSignedTx(nil, prop, id, presp, presp)
 	} else {
-		env, err = protoutil.CreateSignedTx(prop, id, presp)
+		env, err = protoutil.CreateSignedTx(nil, prop, id, presp)
 	}
 	if err != nil {
 		return nil, err

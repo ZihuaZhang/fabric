@@ -11,11 +11,11 @@ import (
 	"fmt"
 	"time"
 
-	ab "github.com/hyperledger/fabric-protos-go/orderer"
-	"github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/gossip/common"
-	"github.com/hyperledger/fabric/internal/pkg/comm"
-	"github.com/hyperledger/fabric/internal/pkg/peer/orderers"
+	ab "github.com/ZihuaZhang/fabric-protos-go/orderer"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/gossip/common"
+	"github.com/ZihuaZhang/fabric/internal/pkg/comm"
+	"github.com/ZihuaZhang/fabric/internal/pkg/peer/orderers"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/connectivity"
 )

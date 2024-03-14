@@ -14,13 +14,13 @@ import (
 	"io"
 	"strings"
 
+	"github.com/ZihuaZhang/fabric/common/flogging"
+	"github.com/ZihuaZhang/fabric/common/metadata"
+	"github.com/ZihuaZhang/fabric/core/chaincode/platforms/golang"
+	"github.com/ZihuaZhang/fabric/core/chaincode/platforms/java"
+	"github.com/ZihuaZhang/fabric/core/chaincode/platforms/node"
+	"github.com/ZihuaZhang/fabric/core/chaincode/platforms/util"
 	docker "github.com/fsouza/go-dockerclient"
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/common/metadata"
-	"github.com/hyperledger/fabric/core/chaincode/platforms/golang"
-	"github.com/hyperledger/fabric/core/chaincode/platforms/java"
-	"github.com/hyperledger/fabric/core/chaincode/platforms/node"
-	"github.com/hyperledger/fabric/core/chaincode/platforms/util"
 	"github.com/pkg/errors"
 )
 

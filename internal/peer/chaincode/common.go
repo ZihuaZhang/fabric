@@ -16,17 +16,17 @@ import (
 	"strings"
 	"sync"
 
+	"github.com/ZihuaZhang/fabric-chaincode-go/shim"
+	pcommon "github.com/ZihuaZhang/fabric-protos-go/common"
+	ab "github.com/ZihuaZhang/fabric-protos-go/orderer"
+	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/bccsp"
+	"github.com/ZihuaZhang/fabric/common/policydsl"
+	"github.com/ZihuaZhang/fabric/common/util"
+	"github.com/ZihuaZhang/fabric/internal/peer/common"
+	"github.com/ZihuaZhang/fabric/internal/pkg/identity"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-chaincode-go/shim"
-	pcommon "github.com/hyperledger/fabric-protos-go/common"
-	ab "github.com/hyperledger/fabric-protos-go/orderer"
-	pb "github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/common/policydsl"
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/internal/peer/common"
-	"github.com/hyperledger/fabric/internal/pkg/identity"
-	"github.com/hyperledger/fabric/protoutil"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -537,7 +537,7 @@ func ChaincodeInvokeOrQuery(
 				return proposalResp, nil
 			}
 			// assemble a signed transaction (it's an Envelope message)
-			env, err := protoutil.CreateSignedTx(prop, signer, responses...)
+			env, err := protoutil.CreateSignedTx(spec, prop, signer, responses...)
 			if err != nil {
 				return proposalResp, errors.WithMessage(err, "could not assemble transaction")
 			}

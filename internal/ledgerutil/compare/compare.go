@@ -17,11 +17,11 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/ZihuaZhang/fabric/common/ledger/util"
+	"github.com/ZihuaZhang/fabric/core/ledger/kvledger"
+	"github.com/ZihuaZhang/fabric/core/ledger/kvledger/txmgmt/privacyenabledstate"
+	"github.com/ZihuaZhang/fabric/internal/fileutil"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/common/ledger/util"
-	"github.com/hyperledger/fabric/core/ledger/kvledger"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/privacyenabledstate"
-	"github.com/hyperledger/fabric/internal/fileutil"
 	"github.com/pkg/errors"
 )
 

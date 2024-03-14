@@ -9,10 +9,10 @@ package mock
 import (
 	"testing"
 
-	proto "github.com/hyperledger/fabric-protos-go/gossip"
-	"github.com/hyperledger/fabric/gossip/comm"
-	"github.com/hyperledger/fabric/gossip/common"
-	"github.com/hyperledger/fabric/gossip/protoext"
+	proto "github.com/ZihuaZhang/fabric-protos-go/gossip"
+	"github.com/ZihuaZhang/fabric/gossip/comm"
+	"github.com/ZihuaZhang/fabric/gossip/common"
+	"github.com/ZihuaZhang/fabric/gossip/protoext"
 	"github.com/stretchr/testify/require"
 )
 

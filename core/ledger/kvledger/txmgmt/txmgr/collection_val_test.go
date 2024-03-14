@@ -9,8 +9,8 @@ package txmgr
 import (
 	"testing"
 
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/core/ledger/internal/version"
+	"github.com/ZihuaZhang/fabric/core/ledger"
+	"github.com/ZihuaZhang/fabric/core/ledger/internal/version"
 	"github.com/stretchr/testify/require"
 )
 

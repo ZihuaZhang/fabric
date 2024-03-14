@@ -7,9 +7,9 @@ SPDX-License-Identifier: Apache-2.0
 package comm
 
 import (
-	"github.com/hyperledger/fabric/gossip/common"
-	"github.com/hyperledger/fabric/gossip/protoext"
-	"github.com/hyperledger/fabric/gossip/util"
+	"github.com/ZihuaZhang/fabric/gossip/common"
+	"github.com/ZihuaZhang/fabric/gossip/protoext"
+	"github.com/ZihuaZhang/fabric/gossip/util"
 )
 
 type (

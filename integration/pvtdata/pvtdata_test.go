@@ -18,22 +18,22 @@ import (
 	"strings"
 	"syscall"
 
+	cb "github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset"
+	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset/kvrwset"
+	mspp "github.com/ZihuaZhang/fabric-protos-go/msp"
+	ab "github.com/ZihuaZhang/fabric-protos-go/orderer"
+	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/common/crypto"
+	"github.com/ZihuaZhang/fabric/core/ledger/util"
+	"github.com/ZihuaZhang/fabric/integration/channelparticipation"
+	"github.com/ZihuaZhang/fabric/integration/nwo"
+	"github.com/ZihuaZhang/fabric/integration/nwo/commands"
+	"github.com/ZihuaZhang/fabric/integration/pvtdata/marblechaincodeutil"
+	"github.com/ZihuaZhang/fabric/msp"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	docker "github.com/fsouza/go-dockerclient"
 	"github.com/golang/protobuf/proto"
-	cb "github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric-protos-go/ledger/rwset"
-	"github.com/hyperledger/fabric-protos-go/ledger/rwset/kvrwset"
-	mspp "github.com/hyperledger/fabric-protos-go/msp"
-	ab "github.com/hyperledger/fabric-protos-go/orderer"
-	pb "github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/common/crypto"
-	"github.com/hyperledger/fabric/core/ledger/util"
-	"github.com/hyperledger/fabric/integration/channelparticipation"
-	"github.com/hyperledger/fabric/integration/nwo"
-	"github.com/hyperledger/fabric/integration/nwo/commands"
-	"github.com/hyperledger/fabric/integration/pvtdata/marblechaincodeutil"
-	"github.com/hyperledger/fabric/msp"
-	"github.com/hyperledger/fabric/protoutil"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"github.com/onsi/gomega/gbytes"
@@ -85,7 +85,7 @@ var _ = Describe("PrivateData", func() {
 			testChaincode := nwo.Chaincode{
 				Name:         "marblesp",
 				Version:      "1.0",
-				Path:         components.Build("github.com/hyperledger/fabric/integration/chaincode/marbles_private/cmd"),
+				Path:         components.Build("github.com/ZihuaZhang/fabric/integration/chaincode/marbles_private/cmd"),
 				Ctor:         `{"Args":["init"]}`,
 				InitRequired: true,
 				Lang:         "binary",
@@ -110,7 +110,7 @@ var _ = Describe("PrivateData", func() {
 			testChaincodeHighRequiredPeerCount := nwo.Chaincode{
 				Name:              "marblespHighRequiredPeerCount",
 				Version:           "1.0",
-				Path:              components.Build("github.com/hyperledger/fabric/integration/chaincode/marbles_private/cmd"),
+				Path:              components.Build("github.com/ZihuaZhang/fabric/integration/chaincode/marbles_private/cmd"),
 				Lang:              "binary",
 				PackageFile:       filepath.Join(network.RootDir, "marbles-pvtdata.tar.gz"),
 				Label:             "marblesp",
@@ -147,7 +147,7 @@ var _ = Describe("PrivateData", func() {
 				testChaincode := nwo.Chaincode{
 					Name:              "marblesp",
 					Version:           "1.0",
-					Path:              components.Build("github.com/hyperledger/fabric/integration/chaincode/marbles_private/cmd"),
+					Path:              components.Build("github.com/ZihuaZhang/fabric/integration/chaincode/marbles_private/cmd"),
 					Ctor:              `{"Args":["init"]}`,
 					InitRequired:      true,
 					Lang:              "binary",
@@ -209,7 +209,7 @@ var _ = Describe("PrivateData", func() {
 			testChaincode := nwo.Chaincode{
 				Name:         "marblesp",
 				Version:      "1.0",
-				Path:         components.Build("github.com/hyperledger/fabric/integration/chaincode/marbles_private/cmd"),
+				Path:         components.Build("github.com/ZihuaZhang/fabric/integration/chaincode/marbles_private/cmd"),
 				Ctor:         `{"Args":["init"]}`,
 				InitRequired: true,
 				Lang:         "binary",
@@ -300,7 +300,7 @@ var _ = Describe("PrivateData", func() {
 			chaincode := nwo.Chaincode{
 				Name:              "marblesp",
 				Version:           "1.0",
-				Path:              components.Build("github.com/hyperledger/fabric/integration/chaincode/marbles_private/cmd"),
+				Path:              components.Build("github.com/ZihuaZhang/fabric/integration/chaincode/marbles_private/cmd"),
 				Ctor:              `{"Args":["init"]}`,
 				InitRequired:      true,
 				Lang:              "binary",
@@ -402,7 +402,7 @@ var _ = Describe("PrivateData", func() {
 			newLifecycleChaincode = nwo.Chaincode{
 				Name:              "marblesp",
 				Version:           "1.0",
-				Path:              components.Build("github.com/hyperledger/fabric/integration/chaincode/marbles_private/cmd"),
+				Path:              components.Build("github.com/ZihuaZhang/fabric/integration/chaincode/marbles_private/cmd"),
 				Lang:              "binary",
 				PackageFile:       filepath.Join(network.RootDir, "marbles-pvtdata.tar.gz"),
 				Label:             "marbles-private-20",
@@ -691,7 +691,7 @@ var _ = Describe("PrivateData", func() {
 			newLifecycleChaincode = nwo.Chaincode{
 				Name:              "marblesp",
 				Version:           "1.0",
-				Path:              components.Build("github.com/hyperledger/fabric/integration/chaincode/marbles_private/cmd"),
+				Path:              components.Build("github.com/ZihuaZhang/fabric/integration/chaincode/marbles_private/cmd"),
 				Lang:              "binary",
 				PackageFile:       filepath.Join(network.RootDir, "marbles-pvtdata.tar.gz"),
 				Label:             "marbles-private-20",

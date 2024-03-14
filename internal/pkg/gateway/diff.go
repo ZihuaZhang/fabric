@@ -11,8 +11,8 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/protoutil"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/protoutil"
 )
 
 type (

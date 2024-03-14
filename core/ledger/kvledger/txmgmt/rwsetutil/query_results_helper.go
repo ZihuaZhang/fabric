@@ -9,8 +9,8 @@ package rwsetutil
 import (
 	"fmt"
 
+	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset/kvrwset"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/ledger/rwset/kvrwset"
 	"github.com/pkg/errors"
 )
 

@@ -9,13 +9,13 @@ package validation
 import (
 	"testing"
 
-	cb "github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/bccsp/sw"
-	"github.com/hyperledger/fabric/core/config/configtest"
-	"github.com/hyperledger/fabric/internal/configtxgen/encoder"
-	"github.com/hyperledger/fabric/internal/configtxgen/genesisconfig"
-	"github.com/hyperledger/fabric/protoutil"
+	cb "github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/bccsp/sw"
+	"github.com/ZihuaZhang/fabric/core/config/configtest"
+	"github.com/ZihuaZhang/fabric/internal/configtxgen/encoder"
+	"github.com/ZihuaZhang/fabric/internal/configtxgen/genesisconfig"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/stretchr/testify/require"
 )
 

@@ -9,7 +9,7 @@ package channel
 import (
 	"os"
 
-	"github.com/hyperledger/fabric/protoutil"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/spf13/cobra"
 )
 

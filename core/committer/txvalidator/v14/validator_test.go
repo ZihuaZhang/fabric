@@ -14,39 +14,39 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric-protos-go/ledger/rwset"
-	"github.com/hyperledger/fabric-protos-go/ledger/rwset/kvrwset"
-	mb "github.com/hyperledger/fabric-protos-go/msp"
-	"github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/bccsp/sw"
-	ctxt "github.com/hyperledger/fabric/common/configtx/test"
-	commonerrors "github.com/hyperledger/fabric/common/errors"
-	ledger2 "github.com/hyperledger/fabric/common/ledger"
-	"github.com/hyperledger/fabric/common/ledger/testutil"
-	"github.com/hyperledger/fabric/common/policydsl"
-	"github.com/hyperledger/fabric/common/semaphore"
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/core/committer/txvalidator"
-	tmocks "github.com/hyperledger/fabric/core/committer/txvalidator/mocks"
-	vp "github.com/hyperledger/fabric/core/committer/txvalidator/plugin"
-	txvalidatorv14 "github.com/hyperledger/fabric/core/committer/txvalidator/v14"
-	"github.com/hyperledger/fabric/core/committer/txvalidator/v14/mocks"
-	"github.com/hyperledger/fabric/core/committer/txvalidator/v14/testdata"
-	ccp "github.com/hyperledger/fabric/core/common/ccprovider"
-	validation "github.com/hyperledger/fabric/core/handlers/validation/api"
-	"github.com/hyperledger/fabric/core/handlers/validation/builtin"
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/rwsetutil"
-	"github.com/hyperledger/fabric/core/ledger/ledgermgmt"
-	"github.com/hyperledger/fabric/core/ledger/ledgermgmt/ledgermgmttest"
-	mocktxvalidator "github.com/hyperledger/fabric/core/mocks/txvalidator"
-	mocks2 "github.com/hyperledger/fabric/discovery/support/mocks"
-	"github.com/hyperledger/fabric/internal/pkg/txflags"
-	"github.com/hyperledger/fabric/msp"
-	"github.com/hyperledger/fabric/msp/mgmt"
-	msptesttools "github.com/hyperledger/fabric/msp/mgmt/testtools"
-	"github.com/hyperledger/fabric/protoutil"
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset"
+	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset/kvrwset"
+	mb "github.com/ZihuaZhang/fabric-protos-go/msp"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/bccsp/sw"
+	ctxt "github.com/ZihuaZhang/fabric/common/configtx/test"
+	commonerrors "github.com/ZihuaZhang/fabric/common/errors"
+	ledger2 "github.com/ZihuaZhang/fabric/common/ledger"
+	"github.com/ZihuaZhang/fabric/common/ledger/testutil"
+	"github.com/ZihuaZhang/fabric/common/policydsl"
+	"github.com/ZihuaZhang/fabric/common/semaphore"
+	"github.com/ZihuaZhang/fabric/common/util"
+	"github.com/ZihuaZhang/fabric/core/committer/txvalidator"
+	tmocks "github.com/ZihuaZhang/fabric/core/committer/txvalidator/mocks"
+	vp "github.com/ZihuaZhang/fabric/core/committer/txvalidator/plugin"
+	txvalidatorv14 "github.com/ZihuaZhang/fabric/core/committer/txvalidator/v14"
+	"github.com/ZihuaZhang/fabric/core/committer/txvalidator/v14/mocks"
+	"github.com/ZihuaZhang/fabric/core/committer/txvalidator/v14/testdata"
+	ccp "github.com/ZihuaZhang/fabric/core/common/ccprovider"
+	validation "github.com/ZihuaZhang/fabric/core/handlers/validation/api"
+	"github.com/ZihuaZhang/fabric/core/handlers/validation/builtin"
+	"github.com/ZihuaZhang/fabric/core/ledger"
+	"github.com/ZihuaZhang/fabric/core/ledger/kvledger/txmgmt/rwsetutil"
+	"github.com/ZihuaZhang/fabric/core/ledger/ledgermgmt"
+	"github.com/ZihuaZhang/fabric/core/ledger/ledgermgmt/ledgermgmttest"
+	mocktxvalidator "github.com/ZihuaZhang/fabric/core/mocks/txvalidator"
+	mocks2 "github.com/ZihuaZhang/fabric/discovery/support/mocks"
+	"github.com/ZihuaZhang/fabric/internal/pkg/txflags"
+	"github.com/ZihuaZhang/fabric/msp"
+	"github.com/ZihuaZhang/fabric/msp/mgmt"
+	msptesttools "github.com/ZihuaZhang/fabric/msp/mgmt/testtools"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 )
@@ -183,7 +183,7 @@ func getEnvWithType(ccID string, event []byte, res []byte, pType common.HeaderTy
 	require.NoError(t, err)
 
 	// assemble a transaction from that proposal and endorsement
-	tx, err := protoutil.CreateSignedTx(prop, signer, presp)
+	tx, err := protoutil.CreateSignedTx(nil, prop, signer, presp)
 	require.NoError(t, err)
 
 	return tx
@@ -216,7 +216,7 @@ func getEnvWithSigner(ccID string, event []byte, res []byte, sig msp.SigningIden
 	require.NoError(t, err)
 
 	// assemble a transaction from that proposal and endorsement
-	tx, err := protoutil.CreateSignedTx(prop, sig, presp)
+	tx, err := protoutil.CreateSignedTx(nil, prop, sig, presp)
 	require.NoError(t, err)
 
 	return tx
@@ -1051,7 +1051,7 @@ func testInvokeOKSCC(t *testing.T, l ledger.PeerLedger, v txvalidator.Validator)
 	require.NoError(t, err)
 	presp, err := protoutil.CreateProposalResponse(prop.Header, prop.Payload, &peer.Response{Status: 200}, rwsetBytes, nil, &peer.ChaincodeID{Name: "lscc", Version: ccVersion}, signer)
 	require.NoError(t, err)
-	tx, err := protoutil.CreateSignedTx(prop, signer, presp)
+	tx, err := protoutil.CreateSignedTx(nil, prop, signer, presp)
 	require.NoError(t, err)
 	b := &common.Block{Data: &common.BlockData{Data: [][]byte{protoutil.MarshalOrPanic(tx)}}, Header: &common.BlockHeader{Number: 1}}
 

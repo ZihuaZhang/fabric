@@ -9,10 +9,10 @@ package multichannel
 import (
 	"testing"
 
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric/bccsp/sw"
-	msgprocessormocks "github.com/hyperledger/fabric/orderer/common/msgprocessor/mocks"
-	"github.com/hyperledger/fabric/orderer/common/multichannel/mocks"
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric/bccsp/sw"
+	msgprocessormocks "github.com/ZihuaZhang/fabric/orderer/common/msgprocessor/mocks"
+	"github.com/ZihuaZhang/fabric/orderer/common/multichannel/mocks"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
 )

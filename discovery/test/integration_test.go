@@ -22,41 +22,41 @@ import (
 	"testing"
 	"time"
 
-	discovery_protos "github.com/hyperledger/fabric-protos-go/discovery"
+	discovery_protos "github.com/ZihuaZhang/fabric-protos-go/discovery"
 
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric-protos-go/gossip"
+	msprotos "github.com/ZihuaZhang/fabric-protos-go/msp"
+	. "github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/bccsp/sw"
+	bccsp "github.com/ZihuaZhang/fabric/bccsp/utils"
+	"github.com/ZihuaZhang/fabric/common/cauthdsl"
+	"github.com/ZihuaZhang/fabric/common/configtx"
+	"github.com/ZihuaZhang/fabric/common/crypto/tlsgen"
+	"github.com/ZihuaZhang/fabric/common/policies"
+	"github.com/ZihuaZhang/fabric/common/policydsl"
+	"github.com/ZihuaZhang/fabric/common/util"
+	"github.com/ZihuaZhang/fabric/core/cclifecycle"
+	lifecyclemocks "github.com/ZihuaZhang/fabric/core/cclifecycle/mocks"
+	"github.com/ZihuaZhang/fabric/core/common/ccprovider"
+	"github.com/ZihuaZhang/fabric/discovery"
+	disc "github.com/ZihuaZhang/fabric/discovery/client"
+	"github.com/ZihuaZhang/fabric/discovery/endorsement"
+	discsupport "github.com/ZihuaZhang/fabric/discovery/support"
+	discacl "github.com/ZihuaZhang/fabric/discovery/support/acl"
+	ccsupport "github.com/ZihuaZhang/fabric/discovery/support/chaincode"
+	"github.com/ZihuaZhang/fabric/discovery/support/config"
+	"github.com/ZihuaZhang/fabric/discovery/support/mocks"
+	"github.com/ZihuaZhang/fabric/gossip/api"
+	gcommon "github.com/ZihuaZhang/fabric/gossip/common"
+	gdisc "github.com/ZihuaZhang/fabric/gossip/discovery"
+	"github.com/ZihuaZhang/fabric/gossip/protoext"
+	"github.com/ZihuaZhang/fabric/internal/configtxgen/encoder"
+	"github.com/ZihuaZhang/fabric/internal/configtxgen/genesisconfig"
+	"github.com/ZihuaZhang/fabric/internal/pkg/comm"
+	"github.com/ZihuaZhang/fabric/msp"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric-protos-go/gossip"
-	msprotos "github.com/hyperledger/fabric-protos-go/msp"
-	. "github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/bccsp/sw"
-	bccsp "github.com/hyperledger/fabric/bccsp/utils"
-	"github.com/hyperledger/fabric/common/cauthdsl"
-	"github.com/hyperledger/fabric/common/configtx"
-	"github.com/hyperledger/fabric/common/crypto/tlsgen"
-	"github.com/hyperledger/fabric/common/policies"
-	"github.com/hyperledger/fabric/common/policydsl"
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/core/cclifecycle"
-	lifecyclemocks "github.com/hyperledger/fabric/core/cclifecycle/mocks"
-	"github.com/hyperledger/fabric/core/common/ccprovider"
-	"github.com/hyperledger/fabric/discovery"
-	disc "github.com/hyperledger/fabric/discovery/client"
-	"github.com/hyperledger/fabric/discovery/endorsement"
-	discsupport "github.com/hyperledger/fabric/discovery/support"
-	discacl "github.com/hyperledger/fabric/discovery/support/acl"
-	ccsupport "github.com/hyperledger/fabric/discovery/support/chaincode"
-	"github.com/hyperledger/fabric/discovery/support/config"
-	"github.com/hyperledger/fabric/discovery/support/mocks"
-	"github.com/hyperledger/fabric/gossip/api"
-	gcommon "github.com/hyperledger/fabric/gossip/common"
-	gdisc "github.com/hyperledger/fabric/gossip/discovery"
-	"github.com/hyperledger/fabric/gossip/protoext"
-	"github.com/hyperledger/fabric/internal/configtxgen/encoder"
-	"github.com/hyperledger/fabric/internal/configtxgen/genesisconfig"
-	"github.com/hyperledger/fabric/internal/pkg/comm"
-	"github.com/hyperledger/fabric/msp"
-	"github.com/hyperledger/fabric/protoutil"
 	"github.com/onsi/gomega/gexec"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
@@ -619,12 +619,12 @@ func createPolicyManagerGetter(t *testing.T, mspMgr msp.MSPManager) *mocks.Chann
 
 func buildBinaries() error {
 	var err error
-	cryptogen, err = gexec.Build("github.com/hyperledger/fabric/cmd/cryptogen")
+	cryptogen, err = gexec.Build("github.com/ZihuaZhang/fabric/cmd/cryptogen")
 	if err != nil {
 		return errors.WithStack(err)
 	}
 
-	idemixgen, err = gexec.Build("github.com/IBM/idemix/tools/idemixgen", "-mod=mod")
+	idemixgen, err = gexec.Build("github.com/ZihuaZhang/idemix/tools/idemixgen", "-mod=mod")
 	if err != nil {
 		return errors.WithStack(err)
 	}

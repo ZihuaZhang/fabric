@@ -16,10 +16,10 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric/internal/osnadmin"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric/internal/osnadmin"
-	"github.com/hyperledger/fabric/protoutil"
 	"gopkg.in/alecthomas/kingpin.v2"
 )
 

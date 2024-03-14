@@ -13,12 +13,12 @@ import (
 	"testing"
 	"time"
 
-	cb "github.com/hyperledger/fabric-protos-go/common"
-	ab "github.com/hyperledger/fabric-protos-go/orderer"
-	"github.com/hyperledger/fabric/core/config/configtest"
-	"github.com/hyperledger/fabric/internal/peer/common"
-	"github.com/hyperledger/fabric/internal/peer/common/mock"
-	"github.com/hyperledger/fabric/protoutil"
+	cb "github.com/ZihuaZhang/fabric-protos-go/common"
+	ab "github.com/ZihuaZhang/fabric-protos-go/orderer"
+	"github.com/ZihuaZhang/fabric/core/config/configtest"
+	"github.com/ZihuaZhang/fabric/internal/peer/common"
+	"github.com/ZihuaZhang/fabric/internal/peer/common/mock"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/require"
 )

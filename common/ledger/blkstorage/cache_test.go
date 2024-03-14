@@ -11,7 +11,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/hyperledger/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric-protos-go/common"
 	"github.com/stretchr/testify/require"
 )
 

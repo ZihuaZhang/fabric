@@ -9,15 +9,15 @@ package gateway
 import (
 	"testing"
 
-	cb "github.com/hyperledger/fabric-protos-go/common"
-	dp "github.com/hyperledger/fabric-protos-go/discovery"
-	"github.com/hyperledger/fabric-protos-go/msp"
-	"github.com/hyperledger/fabric/bccsp/sw"
-	"github.com/hyperledger/fabric/common/channelconfig"
-	"github.com/hyperledger/fabric/common/crypto/tlsgen"
-	"github.com/hyperledger/fabric/core/config/configtest"
-	"github.com/hyperledger/fabric/internal/configtxgen/encoder"
-	"github.com/hyperledger/fabric/internal/configtxgen/genesisconfig"
+	cb "github.com/ZihuaZhang/fabric-protos-go/common"
+	dp "github.com/ZihuaZhang/fabric-protos-go/discovery"
+	"github.com/ZihuaZhang/fabric-protos-go/msp"
+	"github.com/ZihuaZhang/fabric/bccsp/sw"
+	"github.com/ZihuaZhang/fabric/common/channelconfig"
+	"github.com/ZihuaZhang/fabric/common/crypto/tlsgen"
+	"github.com/ZihuaZhang/fabric/core/config/configtest"
+	"github.com/ZihuaZhang/fabric/internal/configtxgen/encoder"
+	"github.com/ZihuaZhang/fabric/internal/configtxgen/genesisconfig"
 	"github.com/stretchr/testify/require"
 )
 

@@ -9,11 +9,11 @@ package channelconfig
 import (
 	"testing"
 
-	mspprotos "github.com/hyperledger/fabric-protos-go/msp"
-	"github.com/hyperledger/fabric/bccsp/factory"
-	"github.com/hyperledger/fabric/bccsp/sw"
-	"github.com/hyperledger/fabric/core/config/configtest"
-	"github.com/hyperledger/fabric/msp"
+	mspprotos "github.com/ZihuaZhang/fabric-protos-go/msp"
+	"github.com/ZihuaZhang/fabric/bccsp/factory"
+	"github.com/ZihuaZhang/fabric/bccsp/sw"
+	"github.com/ZihuaZhang/fabric/core/config/configtest"
+	"github.com/ZihuaZhang/fabric/msp"
 	"github.com/stretchr/testify/require"
 )
 

@@ -7,15 +7,15 @@ SPDX-License-Identifier: Apache-2.0
 package txmgr
 
 import (
-	"github.com/hyperledger/fabric-protos-go/ledger/queryresult"
-	"github.com/hyperledger/fabric-protos-go/ledger/rwset/kvrwset"
-	commonledger "github.com/hyperledger/fabric/common/ledger"
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/core/ledger/internal/version"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/rwsetutil"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/statedb"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/statemetadata"
-	"github.com/hyperledger/fabric/core/ledger/util"
+	"github.com/ZihuaZhang/fabric-protos-go/ledger/queryresult"
+	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset/kvrwset"
+	commonledger "github.com/ZihuaZhang/fabric/common/ledger"
+	"github.com/ZihuaZhang/fabric/core/ledger"
+	"github.com/ZihuaZhang/fabric/core/ledger/internal/version"
+	"github.com/ZihuaZhang/fabric/core/ledger/kvledger/txmgmt/rwsetutil"
+	"github.com/ZihuaZhang/fabric/core/ledger/kvledger/txmgmt/statedb"
+	"github.com/ZihuaZhang/fabric/core/ledger/kvledger/txmgmt/statemetadata"
+	"github.com/ZihuaZhang/fabric/core/ledger/util"
 	"github.com/pkg/errors"
 )
 

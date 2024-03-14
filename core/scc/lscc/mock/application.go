@@ -4,7 +4,7 @@ package mock
 import (
 	"sync"
 
-	"github.com/hyperledger/fabric/common/channelconfig"
+	"github.com/ZihuaZhang/fabric/common/channelconfig"
 )
 
 type Application struct {

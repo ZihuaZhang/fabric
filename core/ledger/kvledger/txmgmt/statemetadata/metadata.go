@@ -7,8 +7,8 @@ SPDX-License-Identifier: Apache-2.0
 package statemetadata
 
 import (
+	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset/kvrwset"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/ledger/rwset/kvrwset"
 )
 
 // Serialize serializes metadata entries for storing in statedb

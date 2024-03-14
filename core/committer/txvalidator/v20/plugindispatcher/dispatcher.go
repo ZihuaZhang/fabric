@@ -9,16 +9,16 @@ package plugindispatcher
 import (
 	"fmt"
 
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	commonerrors "github.com/ZihuaZhang/fabric/common/errors"
+	"github.com/ZihuaZhang/fabric/common/flogging"
+	validation "github.com/ZihuaZhang/fabric/core/handlers/validation/api"
+	s "github.com/ZihuaZhang/fabric/core/handlers/validation/api/state"
+	"github.com/ZihuaZhang/fabric/core/ledger"
+	"github.com/ZihuaZhang/fabric/core/ledger/kvledger/txmgmt/rwsetutil"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric-protos-go/peer"
-	commonerrors "github.com/hyperledger/fabric/common/errors"
-	"github.com/hyperledger/fabric/common/flogging"
-	validation "github.com/hyperledger/fabric/core/handlers/validation/api"
-	s "github.com/hyperledger/fabric/core/handlers/validation/api/state"
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/rwsetutil"
-	"github.com/hyperledger/fabric/protoutil"
 	"github.com/pkg/errors"
 )
 

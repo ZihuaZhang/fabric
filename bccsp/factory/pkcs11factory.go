@@ -12,9 +12,9 @@ package factory
 import (
 	"encoding/hex"
 
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/bccsp/pkcs11"
-	"github.com/hyperledger/fabric/bccsp/sw"
+	"github.com/ZihuaZhang/fabric/bccsp"
+	"github.com/ZihuaZhang/fabric/bccsp/pkcs11"
+	"github.com/ZihuaZhang/fabric/bccsp/sw"
 	"github.com/pkg/errors"
 )
 

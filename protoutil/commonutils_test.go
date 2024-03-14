@@ -11,11 +11,11 @@ import (
 	"errors"
 	"testing"
 
+	cb "github.com/ZihuaZhang/fabric-protos-go/common"
+	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/common/crypto"
+	"github.com/ZihuaZhang/fabric/protoutil/fakes"
 	"github.com/golang/protobuf/proto"
-	cb "github.com/hyperledger/fabric-protos-go/common"
-	pb "github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/common/crypto"
-	"github.com/hyperledger/fabric/protoutil/fakes"
 	"github.com/stretchr/testify/require"
 )
 

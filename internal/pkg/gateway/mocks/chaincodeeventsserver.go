@@ -5,7 +5,7 @@ import (
 	"context"
 	"sync"
 
-	"github.com/hyperledger/fabric-protos-go/gateway"
+	"github.com/ZihuaZhang/fabric-protos-go/gateway"
 	"google.golang.org/grpc/metadata"
 )
 

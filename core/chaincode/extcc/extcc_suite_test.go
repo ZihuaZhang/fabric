@@ -9,7 +9,7 @@ package extcc_test
 import (
 	"testing"
 
-	"github.com/hyperledger/fabric/core/chaincode/extcc"
+	"github.com/ZihuaZhang/fabric/core/chaincode/extcc"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )

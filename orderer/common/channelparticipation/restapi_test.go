@@ -17,12 +17,12 @@ import (
 	"path"
 	"testing"
 
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric/orderer/common/channelparticipation"
-	"github.com/hyperledger/fabric/orderer/common/channelparticipation/mocks"
-	"github.com/hyperledger/fabric/orderer/common/localconfig"
-	"github.com/hyperledger/fabric/orderer/common/types"
-	"github.com/hyperledger/fabric/protoutil"
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric/orderer/common/channelparticipation"
+	"github.com/ZihuaZhang/fabric/orderer/common/channelparticipation/mocks"
+	"github.com/ZihuaZhang/fabric/orderer/common/localconfig"
+	"github.com/ZihuaZhang/fabric/orderer/common/types"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
 )

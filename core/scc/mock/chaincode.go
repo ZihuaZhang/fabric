@@ -4,8 +4,8 @@ package mock
 import (
 	"sync"
 
-	"github.com/hyperledger/fabric-chaincode-go/shim"
-	"github.com/hyperledger/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric-chaincode-go/shim"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
 )
 
 type Chaincode struct {

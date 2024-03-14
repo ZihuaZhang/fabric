@@ -13,8 +13,8 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/bccsp/pkcs11"
+	"github.com/ZihuaZhang/fabric/bccsp"
+	"github.com/ZihuaZhang/fabric/bccsp/pkcs11"
 	"github.com/mitchellh/mapstructure"
 	"github.com/pkg/errors"
 )

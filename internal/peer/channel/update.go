@@ -11,8 +11,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/hyperledger/fabric/internal/peer/common"
-	"github.com/hyperledger/fabric/protoutil"
+	"github.com/ZihuaZhang/fabric/internal/peer/common"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/spf13/cobra"
 )
 

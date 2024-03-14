@@ -9,7 +9,7 @@ package commit
 import (
 	"sync"
 
-	"github.com/hyperledger/fabric/internal/pkg/gateway/ledger"
+	"github.com/ZihuaZhang/fabric/internal/pkg/gateway/ledger"
 )
 
 type notifiers struct {

@@ -21,9 +21,9 @@ import (
 	"sort"
 	"strings"
 
-	pb "github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/core/chaincode/platforms/util"
-	"github.com/hyperledger/fabric/internal/ccmetadata"
+	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/core/chaincode/platforms/util"
+	"github.com/ZihuaZhang/fabric/internal/ccmetadata"
 	"github.com/pkg/errors"
 	"github.com/spf13/viper"
 )

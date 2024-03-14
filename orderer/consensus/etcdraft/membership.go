@@ -9,8 +9,8 @@ package etcdraft
 import (
 	"fmt"
 
+	"github.com/ZihuaZhang/fabric-protos-go/orderer/etcdraft"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/orderer/etcdraft"
 	"github.com/pkg/errors"
 	"go.etcd.io/etcd/raft/v3"
 	"go.etcd.io/etcd/raft/v3/raftpb"

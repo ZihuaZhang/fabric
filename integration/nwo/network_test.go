@@ -12,10 +12,10 @@ import (
 	"path/filepath"
 	"syscall"
 
+	"github.com/ZihuaZhang/fabric/integration/channelparticipation"
+	"github.com/ZihuaZhang/fabric/integration/nwo"
+	"github.com/ZihuaZhang/fabric/integration/nwo/commands"
 	docker "github.com/fsouza/go-dockerclient"
-	"github.com/hyperledger/fabric/integration/channelparticipation"
-	"github.com/hyperledger/fabric/integration/nwo"
-	"github.com/hyperledger/fabric/integration/nwo/commands"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"github.com/onsi/gomega/gbytes"
@@ -81,7 +81,7 @@ var _ = Describe("Network", func() {
 			chaincode := nwo.Chaincode{
 				Name:            "mycc",
 				Version:         "0.0",
-				Path:            "github.com/hyperledger/fabric/integration/chaincode/simple/cmd",
+				Path:            "github.com/ZihuaZhang/fabric/integration/chaincode/simple/cmd",
 				Lang:            "golang",
 				PackageFile:     filepath.Join(tempDir, "simplecc.tar.gz"),
 				Ctor:            `{"Args":["init","a","100","b","200"]}`,

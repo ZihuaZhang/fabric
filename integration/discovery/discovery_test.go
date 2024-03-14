@@ -14,17 +14,17 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric-protos-go/discovery"
+	pm "github.com/ZihuaZhang/fabric-protos-go/msp"
+	"github.com/ZihuaZhang/fabric/common/policydsl"
+	"github.com/ZihuaZhang/fabric/integration/channelparticipation"
+	"github.com/ZihuaZhang/fabric/integration/nwo"
+	"github.com/ZihuaZhang/fabric/integration/nwo/commands"
+	"github.com/ZihuaZhang/fabric/msp"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	docker "github.com/fsouza/go-dockerclient"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric-protos-go/discovery"
-	pm "github.com/hyperledger/fabric-protos-go/msp"
-	"github.com/hyperledger/fabric/common/policydsl"
-	"github.com/hyperledger/fabric/integration/channelparticipation"
-	"github.com/hyperledger/fabric/integration/nwo"
-	"github.com/hyperledger/fabric/integration/nwo/commands"
-	"github.com/hyperledger/fabric/msp"
-	"github.com/hyperledger/fabric/protoutil"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"github.com/onsi/gomega/gbytes"
@@ -108,7 +108,7 @@ var _ = Describe("DiscoveryService", func() {
 			chaincodeWhenNoAnchorPeers := nwo.Chaincode{
 				Name:            "mycc",
 				Version:         "0.0",
-				Path:            components.Build("github.com/hyperledger/fabric/integration/chaincode/simple/cmd"),
+				Path:            components.Build("github.com/ZihuaZhang/fabric/integration/chaincode/simple/cmd"),
 				Lang:            "binary",
 				PackageFile:     filepath.Join(testDir, "simplecc.tar.gz"),
 				Ctor:            `{"Args":["init","a","100","b","200"]}`,
@@ -350,7 +350,7 @@ var _ = Describe("DiscoveryService", func() {
 			Expect(sess.Err).To(gbytes.Say(`failed constructing descriptor for chaincodes:<name:"mycc-lifecycle"`))
 
 			By("deploying chaincode using org1 and org2")
-			chaincodePath := components.Build("github.com/hyperledger/fabric/integration/chaincode/simple/cmd")
+			chaincodePath := components.Build("github.com/ZihuaZhang/fabric/integration/chaincode/simple/cmd")
 			chaincode := nwo.Chaincode{
 				Name:                "mycc-lifecycle",
 				Version:             "1.0",

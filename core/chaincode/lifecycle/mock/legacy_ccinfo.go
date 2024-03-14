@@ -4,10 +4,10 @@ package mock
 import (
 	"sync"
 
-	"github.com/hyperledger/fabric-protos-go/ledger/rwset/kvrwset"
-	"github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/core/chaincode/lifecycle"
-	"github.com/hyperledger/fabric/core/ledger"
+	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset/kvrwset"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/core/chaincode/lifecycle"
+	"github.com/ZihuaZhang/fabric/core/ledger"
 )
 
 type LegacyDeployedCCInfoProvider struct {

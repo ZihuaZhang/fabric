@@ -4,7 +4,7 @@ package fake
 import (
 	"sync"
 
-	"github.com/hyperledger/fabric/internal/pkg/peer/blocksprovider"
+	"github.com/ZihuaZhang/fabric/internal/pkg/peer/blocksprovider"
 )
 
 type CensorshipDetector struct {

@@ -9,12 +9,12 @@ import (
 	"fmt"
 	"os"
 
-	cb "github.com/hyperledger/fabric-protos-go/common"
-	ab "github.com/hyperledger/fabric-protos-go/orderer"
-	"github.com/hyperledger/fabric/bccsp/factory"
-	"github.com/hyperledger/fabric/msp"
-	mspmgmt "github.com/hyperledger/fabric/msp/mgmt"
-	"github.com/hyperledger/fabric/orderer/common/localconfig"
+	cb "github.com/ZihuaZhang/fabric-protos-go/common"
+	ab "github.com/ZihuaZhang/fabric-protos-go/orderer"
+	"github.com/ZihuaZhang/fabric/bccsp/factory"
+	"github.com/ZihuaZhang/fabric/msp"
+	mspmgmt "github.com/ZihuaZhang/fabric/msp/mgmt"
+	"github.com/ZihuaZhang/fabric/orderer/common/localconfig"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

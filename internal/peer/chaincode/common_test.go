@@ -18,15 +18,15 @@ import (
 	"testing"
 	"time"
 
+	cb "github.com/ZihuaZhang/fabric-protos-go/common"
+	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/bccsp/sw"
+	"github.com/ZihuaZhang/fabric/common/policydsl"
+	"github.com/ZihuaZhang/fabric/core/config/configtest"
+	"github.com/ZihuaZhang/fabric/internal/peer/chaincode/mock"
+	"github.com/ZihuaZhang/fabric/internal/peer/common"
+	msptesttools "github.com/ZihuaZhang/fabric/msp/mgmt/testtools"
 	"github.com/golang/protobuf/proto"
-	cb "github.com/hyperledger/fabric-protos-go/common"
-	pb "github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/bccsp/sw"
-	"github.com/hyperledger/fabric/common/policydsl"
-	"github.com/hyperledger/fabric/core/config/configtest"
-	"github.com/hyperledger/fabric/internal/peer/chaincode/mock"
-	"github.com/hyperledger/fabric/internal/peer/common"
-	msptesttools "github.com/hyperledger/fabric/msp/mgmt/testtools"
 	. "github.com/onsi/gomega"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -51,6 +51,26 @@ func TestCheckChaincodeCmdParamsWithOldCallingSchema(t *testing.T) {
 	result := checkChaincodeCmdParams(&cobra.Command{})
 
 	require.Nil(result)
+}
+
+func TestGetSpec(t *testing.T) {
+	chaincodeCtorJSON = `{ "Function":"func", "Args":["param","zzh","lll"] }`
+	// Build the spec
+	input := chaincodeInput{}
+	if err := json.Unmarshal([]byte(chaincodeCtorJSON), &input); err != nil {
+		fmt.Println("failed")
+	}
+	fmt.Println(input.ChaincodeInput.Args[2])
+}
+
+func TestReactMsg(t *testing.T) {
+	chaincodeCtorJSON = `{ "Function":"func", "Args":["true","pk","msp"] }`
+	// Build the spec
+	input := chaincodeInput{}
+	if err := json.Unmarshal([]byte(chaincodeCtorJSON), &input); err != nil {
+		fmt.Println("failed")
+	}
+	fmt.Println(string(input.ChaincodeInput.Args[1]))
 }
 
 func TestCheckChaincodeCmdParamsWithoutName(t *testing.T) {

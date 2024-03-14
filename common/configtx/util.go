@@ -7,9 +7,9 @@ SPDX-License-Identifier: Apache-2.0
 package configtx
 
 import (
+	cb "github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
-	cb "github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric/protoutil"
 )
 
 // UnmarshalConfig attempts to unmarshal bytes to a *cb.Config

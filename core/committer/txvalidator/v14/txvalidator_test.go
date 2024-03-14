@@ -9,26 +9,26 @@ package txvalidator
 import (
 	"testing"
 
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/bccsp/sw"
+	"github.com/ZihuaZhang/fabric/common/configtx/test"
+	"github.com/ZihuaZhang/fabric/common/ledger/testutil"
+	"github.com/ZihuaZhang/fabric/common/semaphore"
+	util2 "github.com/ZihuaZhang/fabric/common/util"
+	"github.com/ZihuaZhang/fabric/core/committer/txvalidator/mocks"
+	"github.com/ZihuaZhang/fabric/core/common/sysccprovider"
+	ledger2 "github.com/ZihuaZhang/fabric/core/ledger"
+	"github.com/ZihuaZhang/fabric/core/ledger/ledgermgmt"
+	"github.com/ZihuaZhang/fabric/core/ledger/ledgermgmt/ledgermgmttest"
+	mocktxvalidator "github.com/ZihuaZhang/fabric/core/mocks/txvalidator"
+	"github.com/ZihuaZhang/fabric/core/mocks/validator"
+	"github.com/ZihuaZhang/fabric/internal/pkg/txflags"
+	"github.com/ZihuaZhang/fabric/msp"
+	mspmgmt "github.com/ZihuaZhang/fabric/msp/mgmt"
+	msptesttools "github.com/ZihuaZhang/fabric/msp/mgmt/testtools"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/bccsp/sw"
-	"github.com/hyperledger/fabric/common/configtx/test"
-	"github.com/hyperledger/fabric/common/ledger/testutil"
-	"github.com/hyperledger/fabric/common/semaphore"
-	util2 "github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/core/committer/txvalidator/mocks"
-	"github.com/hyperledger/fabric/core/common/sysccprovider"
-	ledger2 "github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/core/ledger/ledgermgmt"
-	"github.com/hyperledger/fabric/core/ledger/ledgermgmt/ledgermgmttest"
-	mocktxvalidator "github.com/hyperledger/fabric/core/mocks/txvalidator"
-	"github.com/hyperledger/fabric/core/mocks/validator"
-	"github.com/hyperledger/fabric/internal/pkg/txflags"
-	"github.com/hyperledger/fabric/msp"
-	mspmgmt "github.com/hyperledger/fabric/msp/mgmt"
-	msptesttools "github.com/hyperledger/fabric/msp/mgmt/testtools"
-	"github.com/hyperledger/fabric/protoutil"
 	"github.com/stretchr/testify/require"
 )
 
@@ -330,7 +330,7 @@ func createCCUpgradeEnvelope(channelID, chaincodeName, chaincodeVersion string, 
 		Endorsement: &peer.Endorsement{},
 	}
 
-	return protoutil.CreateSignedTx(prop, signer, proposalResponse)
+	return protoutil.CreateSignedTx(nil, prop, signer, proposalResponse)
 }
 
 func TestGetTxCCInstance(t *testing.T) {

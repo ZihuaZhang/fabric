@@ -10,12 +10,12 @@ import (
 	"encoding/json"
 	"fmt"
 
+	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
+	lb "github.com/ZihuaZhang/fabric-protos-go/peer/lifecycle"
+	"github.com/ZihuaZhang/fabric/bccsp/sw"
+	"github.com/ZihuaZhang/fabric/internal/peer/lifecycle/chaincode"
+	"github.com/ZihuaZhang/fabric/internal/peer/lifecycle/chaincode/mock"
 	"github.com/golang/protobuf/proto"
-	pb "github.com/hyperledger/fabric-protos-go/peer"
-	lb "github.com/hyperledger/fabric-protos-go/peer/lifecycle"
-	"github.com/hyperledger/fabric/bccsp/sw"
-	"github.com/hyperledger/fabric/internal/peer/lifecycle/chaincode"
-	"github.com/hyperledger/fabric/internal/peer/lifecycle/chaincode/mock"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 

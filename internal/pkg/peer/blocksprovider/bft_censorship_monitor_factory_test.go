@@ -9,7 +9,7 @@ package blocksprovider_test
 import (
 	"testing"
 
-	"github.com/hyperledger/fabric/internal/pkg/peer/blocksprovider"
+	"github.com/ZihuaZhang/fabric/internal/pkg/peer/blocksprovider"
 	"github.com/stretchr/testify/require"
 )
 

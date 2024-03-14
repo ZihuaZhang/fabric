@@ -4,7 +4,7 @@ package mock
 import (
 	"sync"
 
-	"github.com/hyperledger/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric-protos-go/common"
 )
 
 type BlockIterator struct {

@@ -9,10 +9,10 @@ package commit
 import (
 	"testing"
 
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/core/ledger"
+	"github.com/ZihuaZhang/fabric/internal/pkg/gateway/ledger/mocks"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/internal/pkg/gateway/ledger/mocks"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
 )

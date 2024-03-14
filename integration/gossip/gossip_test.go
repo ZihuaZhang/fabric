@@ -13,10 +13,10 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/ZihuaZhang/fabric/integration/channelparticipation"
+	"github.com/ZihuaZhang/fabric/integration/nwo"
+	"github.com/ZihuaZhang/fabric/integration/nwo/commands"
 	docker "github.com/fsouza/go-dockerclient"
-	"github.com/hyperledger/fabric/integration/channelparticipation"
-	"github.com/hyperledger/fabric/integration/nwo"
-	"github.com/hyperledger/fabric/integration/nwo/commands"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"github.com/onsi/gomega/gbytes"
@@ -57,7 +57,7 @@ var _ = Describe("Gossip State Transfer and Membership", func() {
 			Version:         "1.0",
 			Lang:            "binary",
 			PackageFile:     filepath.Join(testDir, "simplecc.tar.gz"),
-			Path:            components.Build("github.com/hyperledger/fabric/integration/chaincode/simple/cmd"),
+			Path:            components.Build("github.com/ZihuaZhang/fabric/integration/chaincode/simple/cmd"),
 			Ctor:            `{"Args":["init","a","100","b","200"]}`,
 			SignaturePolicy: "OR('Org1MSP.member','Org2MSP.member')",
 			Sequence:        "1",

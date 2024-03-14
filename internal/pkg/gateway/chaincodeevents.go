@@ -9,14 +9,14 @@ package gateway
 import (
 	"io"
 
+	gp "github.com/ZihuaZhang/fabric-protos-go/gateway"
+	ab "github.com/ZihuaZhang/fabric-protos-go/orderer"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/core/aclmgmt/resources"
+	"github.com/ZihuaZhang/fabric/internal/pkg/gateway/event"
+	"github.com/ZihuaZhang/fabric/internal/pkg/gateway/ledger"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
-	gp "github.com/hyperledger/fabric-protos-go/gateway"
-	ab "github.com/hyperledger/fabric-protos-go/orderer"
-	"github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/core/aclmgmt/resources"
-	"github.com/hyperledger/fabric/internal/pkg/gateway/event"
-	"github.com/hyperledger/fabric/internal/pkg/gateway/ledger"
-	"github.com/hyperledger/fabric/protoutil"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

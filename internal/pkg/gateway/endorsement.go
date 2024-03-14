@@ -11,9 +11,9 @@ import (
 	"fmt"
 	"sync"
 
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/common/flogging"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/common/flogging"
 	"go.uber.org/zap/zapcore"
 )
 

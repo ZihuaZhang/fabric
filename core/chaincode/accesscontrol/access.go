@@ -10,10 +10,10 @@ import (
 	"errors"
 	"fmt"
 
+	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/common/crypto/tlsgen"
+	"github.com/ZihuaZhang/fabric/common/flogging"
 	"github.com/golang/protobuf/proto"
-	pb "github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/common/crypto/tlsgen"
-	"github.com/hyperledger/fabric/common/flogging"
 	"google.golang.org/grpc"
 )
 

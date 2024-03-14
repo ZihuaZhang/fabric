@@ -12,9 +12,9 @@ import (
 	"io"
 	"time"
 
+	"github.com/ZihuaZhang/fabric/bccsp"
+	"github.com/ZihuaZhang/fabric/bccsp/factory"
 	"github.com/golang/protobuf/ptypes/timestamp"
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/bccsp/factory"
 )
 
 // ComputeSHA256 returns SHA2-256 on data

@@ -9,9 +9,9 @@ package grpclogging_test
 import (
 	"encoding/json"
 
+	"github.com/ZihuaZhang/fabric/common/grpclogging"
+	"github.com/ZihuaZhang/fabric/common/grpclogging/testpb"
 	"github.com/golang/protobuf/jsonpb"
-	"github.com/hyperledger/fabric/common/grpclogging"
-	"github.com/hyperledger/fabric/common/grpclogging/testpb"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"github.com/pkg/errors"

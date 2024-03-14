@@ -4,7 +4,7 @@ package fakes
 import (
 	"sync"
 
-	"github.com/hyperledger/fabric/core/operations"
+	"github.com/ZihuaZhang/fabric/core/operations"
 )
 
 type Logger struct {

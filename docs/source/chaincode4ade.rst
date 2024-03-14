@@ -97,7 +97,7 @@ fabric contract api package and define our SmartContract.
     "fmt"
     "encoding/json"
     "log"
-    "github.com/hyperledger/fabric-contract-api-go/contractapi"
+    "github.com/ZihuaZhang/fabric-contract-api-go/contractapi"
   )
 
   // SmartContract provides functions for managing an Asset
@@ -362,7 +362,7 @@ function. Here's the whole chaincode program source.
     "fmt"
     "log"
 
-    "github.com/hyperledger/fabric-contract-api-go/contractapi"
+    "github.com/ZihuaZhang/fabric-contract-api-go/contractapi"
   )
 
   // SmartContract provides functions for managing an Asset

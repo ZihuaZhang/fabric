@@ -9,8 +9,8 @@ package main
 import (
 	"context"
 
-	"github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/core/handlers/auth"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/core/handlers/auth"
 )
 
 // NewFilter creates a new Filter

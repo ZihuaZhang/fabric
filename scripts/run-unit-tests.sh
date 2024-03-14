@@ -15,19 +15,19 @@ excluded_packages=(
 
 # packages that must be run serially
 serial_packages=(
-    "github.com/hyperledger/fabric/gossip/..."
+    "github.com/ZihuaZhang/fabric/gossip/..."
 )
 
 # packages which need to be tested with build tag pkcs11
 pkcs11_packages=(
-    "github.com/hyperledger/fabric/bccsp/factory"
-    "github.com/hyperledger/fabric/bccsp/pkcs11"
-    "github.com/hyperledger/fabric/internal/peer/common"
+    "github.com/ZihuaZhang/fabric/bccsp/factory"
+    "github.com/ZihuaZhang/fabric/bccsp/pkcs11"
+    "github.com/ZihuaZhang/fabric/internal/peer/common"
 )
 
 # packages that are only tested when they (or their deps) change
 conditional_packages=(
-    "github.com/hyperledger/fabric/gossip/..."
+    "github.com/ZihuaZhang/fabric/gossip/..."
 )
 
 # join array elements by the specified string
@@ -59,7 +59,7 @@ packages_diff() {
     git -C "${base_dir}" diff --no-commit-id --name-only -r "${1:-HEAD}" |
         (grep '.go$' || true) | \
         sed 's%/[^/]*$%%' | sort -u | \
-        awk '{print "github.com/hyperledger/fabric/"$1}'
+        awk '{print "github.com/ZihuaZhang/fabric/"$1}'
 }
 
 # obtain list of changed packages for verification

@@ -10,19 +10,19 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/bccsp/sw"
+	"github.com/ZihuaZhang/fabric/common/configtx/test"
+	"github.com/ZihuaZhang/fabric/common/crypto"
+	"github.com/ZihuaZhang/fabric/internal/pkg/txflags"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/common"
-	pb "github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/bccsp/sw"
-	"github.com/hyperledger/fabric/common/configtx/test"
-	"github.com/hyperledger/fabric/common/crypto"
-	"github.com/hyperledger/fabric/internal/pkg/txflags"
 
-	"github.com/hyperledger/fabric/common/ledger/testutil/fakes"
-	"github.com/hyperledger/fabric/msp"
-	mspmgmt "github.com/hyperledger/fabric/msp/mgmt"
-	msptesttools "github.com/hyperledger/fabric/msp/mgmt/testtools"
-	"github.com/hyperledger/fabric/protoutil"
+	"github.com/ZihuaZhang/fabric/common/ledger/testutil/fakes"
+	"github.com/ZihuaZhang/fabric/msp"
+	mspmgmt "github.com/ZihuaZhang/fabric/msp/mgmt"
+	msptesttools "github.com/ZihuaZhang/fabric/msp/mgmt/testtools"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/stretchr/testify/require"
 )
 
@@ -454,7 +454,7 @@ func ConstructSignedTxEnv(
 		return nil, "", err
 	}
 
-	env, err := protoutil.CreateSignedTx(prop, signer, presp)
+	env, err := protoutil.CreateSignedTx(nil, prop, signer, presp)
 	if err != nil {
 		return nil, "", err
 	}

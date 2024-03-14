@@ -13,12 +13,12 @@ import (
 	"strings"
 	"testing"
 
+	cb "github.com/ZihuaZhang/fabric-protos-go/common"
+	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
 	"github.com/golang/protobuf/proto"
-	cb "github.com/hyperledger/fabric-protos-go/common"
-	pb "github.com/hyperledger/fabric-protos-go/peer"
 
-	"github.com/hyperledger/fabric/protoutil"
-	"github.com/hyperledger/fabric/protoutil/fakes"
+	"github.com/ZihuaZhang/fabric/protoutil"
+	"github.com/ZihuaZhang/fabric/protoutil/fakes"
 	"github.com/stretchr/testify/require"
 )
 
@@ -140,7 +140,7 @@ func TestDeduplicateEndorsements(t *testing.T) {
 		{Payload: []byte("payload"), Endorsement: &pb.Endorsement{Endorser: []byte{5, 4, 3}}, Response: &pb.Response{Status: int32(200)}},
 	}
 
-	transaction, err := protoutil.CreateSignedTx(proposal, signID, responses...)
+	transaction, err := protoutil.CreateSignedTx(nil, proposal, signID, responses...)
 	require.NoError(t, err)
 	require.True(t, proto.Equal(transaction, transaction), "got: %#v, want: %#v", transaction, transaction)
 
@@ -176,7 +176,7 @@ func TestCreateSignedTx(t *testing.T) {
 		SignatureHeader: []byte("bad signature header"),
 	})
 	prop.Header = headerBytes
-	_, err = protoutil.CreateSignedTx(prop, signID, responses...)
+	_, err = protoutil.CreateSignedTx(nil, prop, signID, responses...)
 	require.Error(t, err, "Expected error with malformed signature header")
 
 	// set up the header bytes for the remaining tests
@@ -208,7 +208,7 @@ func TestCreateSignedTx(t *testing.T) {
 		},
 	}
 	for i, nonMatchingTest := range nonMatchingTests {
-		_, err = protoutil.CreateSignedTx(prop, signID, nonMatchingTest.responses...)
+		_, err = protoutil.CreateSignedTx(nil, prop, signID, nonMatchingTest.responses...)
 		require.EqualErrorf(t, err, nonMatchingTest.expectedError, "Expected non-matching response error '%v' for test %d", nonMatchingTest.expectedError, i)
 	}
 
@@ -217,7 +217,7 @@ func TestCreateSignedTx(t *testing.T) {
 		{Payload: []byte("payload"), Response: &pb.Response{Status: int32(200)}},
 		{Payload: []byte("payload2"), Response: &pb.Response{Status: int32(200)}},
 	}
-	_, err = protoutil.CreateSignedTx(prop, signID, responses...)
+	_, err = protoutil.CreateSignedTx(nil, prop, signID, responses...)
 	if err == nil || strings.HasPrefix(err.Error(), "ProposalResponsePayloads do not match (base64):") == false {
 		require.FailNow(t, "Error is expected when response payloads do not match")
 	}
@@ -229,7 +229,7 @@ func TestCreateSignedTx(t *testing.T) {
 			Status: int32(200),
 		},
 	}}
-	_, err = protoutil.CreateSignedTx(prop, signID, responses...)
+	_, err = protoutil.CreateSignedTx(nil, prop, signID, responses...)
 	require.Error(t, err, "Expected error with no endorsements")
 
 	// success
@@ -240,7 +240,7 @@ func TestCreateSignedTx(t *testing.T) {
 			Status: int32(200),
 		},
 	}}
-	_, err = protoutil.CreateSignedTx(prop, signID, responses...)
+	_, err = protoutil.CreateSignedTx(nil, prop, signID, responses...)
 	require.NoError(t, err, "Unexpected error creating signed transaction")
 	t.Logf("error: [%s]", err)
 
@@ -250,27 +250,27 @@ func TestCreateSignedTx(t *testing.T) {
 	prop = &pb.Proposal{}
 	responses = []*pb.ProposalResponse{}
 	// no proposal responses
-	_, err = protoutil.CreateSignedTx(prop, signID, responses...)
+	_, err = protoutil.CreateSignedTx(nil, prop, signID, responses...)
 	require.Error(t, err, "Expected error with no proposal responses")
 
 	// missing proposal header
 	responses = append(responses, &pb.ProposalResponse{})
-	_, err = protoutil.CreateSignedTx(prop, signID, responses...)
+	_, err = protoutil.CreateSignedTx(nil, prop, signID, responses...)
 	require.Error(t, err, "Expected error with no proposal header")
 
 	// bad proposal payload
 	prop.Payload = []byte("bad payload")
-	_, err = protoutil.CreateSignedTx(prop, signID, responses...)
+	_, err = protoutil.CreateSignedTx(nil, prop, signID, responses...)
 	require.Error(t, err, "Expected error with malformed proposal payload")
 
 	// bad payload header
 	prop.Header = []byte("bad header")
-	_, err = protoutil.CreateSignedTx(prop, signID, responses...)
+	_, err = protoutil.CreateSignedTx(nil, prop, signID, responses...)
 	require.Error(t, err, "Expected error with malformed proposal header")
 }
 
 func TestCreateSignedTxNoSigner(t *testing.T) {
-	_, err := protoutil.CreateSignedTx(nil, nil, &pb.ProposalResponse{})
+	_, err := protoutil.CreateSignedTx(nil, nil, nil, &pb.ProposalResponse{})
 	require.ErrorContains(t, err, "signer is required when creating a signed transaction")
 }
 
@@ -325,7 +325,7 @@ func TestCreateSignedTxStatus(t *testing.T) {
 				},
 			}
 
-			_, err := protoutil.CreateSignedTx(proposal, signingID, response)
+			_, err := protoutil.CreateSignedTx(nil, proposal, signingID, response)
 			if tc.expectedErr == "" {
 				require.NoError(t, err)
 			} else {

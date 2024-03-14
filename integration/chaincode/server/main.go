@@ -11,8 +11,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/hyperledger/fabric-chaincode-go/shim"
-	"github.com/hyperledger/fabric/integration/chaincode/simple"
+	"github.com/ZihuaZhang/fabric-chaincode-go/shim"
+	"github.com/ZihuaZhang/fabric/integration/chaincode/simple"
 )
 
 type config struct {

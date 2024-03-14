@@ -17,7 +17,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/hyperledger/fabric/internal/ccmetadata"
+	"github.com/ZihuaZhang/fabric/internal/ccmetadata"
 	"github.com/pkg/errors"
 )
 

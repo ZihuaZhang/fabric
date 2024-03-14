@@ -4,7 +4,7 @@ package mock
 import (
 	"sync"
 
-	"github.com/hyperledger/fabric-chaincode-go/shim"
+	"github.com/ZihuaZhang/fabric-chaincode-go/shim"
 )
 
 type SelfDescribingSysCC struct {

@@ -7,17 +7,17 @@ SPDX-License-Identifier: Apache-2.0
 package test
 
 import (
-	cb "github.com/hyperledger/fabric-protos-go/common"
-	mspproto "github.com/hyperledger/fabric-protos-go/msp"
-	pb "github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/common/channelconfig"
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/common/genesis"
-	"github.com/hyperledger/fabric/core/config/configtest"
-	"github.com/hyperledger/fabric/internal/configtxgen/encoder"
-	"github.com/hyperledger/fabric/internal/configtxgen/genesisconfig"
-	"github.com/hyperledger/fabric/internal/pkg/txflags"
-	"github.com/hyperledger/fabric/protoutil"
+	cb "github.com/ZihuaZhang/fabric-protos-go/common"
+	mspproto "github.com/ZihuaZhang/fabric-protos-go/msp"
+	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/common/channelconfig"
+	"github.com/ZihuaZhang/fabric/common/flogging"
+	"github.com/ZihuaZhang/fabric/common/genesis"
+	"github.com/ZihuaZhang/fabric/core/config/configtest"
+	"github.com/ZihuaZhang/fabric/internal/configtxgen/encoder"
+	"github.com/ZihuaZhang/fabric/internal/configtxgen/genesisconfig"
+	"github.com/ZihuaZhang/fabric/internal/pkg/txflags"
+	"github.com/ZihuaZhang/fabric/protoutil"
 )
 
 var logger = flogging.MustGetLogger("common.configtx.test")

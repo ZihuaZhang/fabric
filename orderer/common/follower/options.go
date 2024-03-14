@@ -10,7 +10,7 @@ import (
 	"math"
 	"time"
 
-	"github.com/hyperledger/fabric/common/flogging"
+	"github.com/ZihuaZhang/fabric/common/flogging"
 )
 
 const (

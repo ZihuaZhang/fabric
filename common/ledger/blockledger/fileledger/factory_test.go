@@ -13,9 +13,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/hyperledger/fabric/common/ledger/blockledger/fileledger/mock"
-	"github.com/hyperledger/fabric/common/metrics/disabled"
-	"github.com/hyperledger/fabric/orderer/common/filerepo"
+	"github.com/ZihuaZhang/fabric/common/ledger/blockledger/fileledger/mock"
+	"github.com/ZihuaZhang/fabric/common/metrics/disabled"
+	"github.com/ZihuaZhang/fabric/orderer/common/filerepo"
 	"github.com/stretchr/testify/require"
 )
 

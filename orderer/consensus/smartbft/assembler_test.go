@@ -11,11 +11,11 @@ import (
 	"testing"
 
 	"github.com/SmartBFT-Go/consensus/pkg/types"
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/orderer/consensus/smartbft"
-	"github.com/hyperledger/fabric/orderer/consensus/smartbft/mocks"
-	"github.com/hyperledger/fabric/protoutil"
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric/common/flogging"
+	"github.com/ZihuaZhang/fabric/orderer/consensus/smartbft"
+	"github.com/ZihuaZhang/fabric/orderer/consensus/smartbft/mocks"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/stretchr/testify/require"
 )
 

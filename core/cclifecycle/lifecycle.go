@@ -9,8 +9,8 @@ package cclifecycle
 import (
 	"sync"
 
-	"github.com/hyperledger/fabric/common/chaincode"
-	"github.com/hyperledger/fabric/common/flogging"
+	"github.com/ZihuaZhang/fabric/common/chaincode"
+	"github.com/ZihuaZhang/fabric/common/flogging"
 	"github.com/pkg/errors"
 )
 

@@ -13,10 +13,10 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric/common/ledger/blkstorage"
-	"github.com/hyperledger/fabric/common/metrics/disabled"
-	"github.com/hyperledger/fabric/protoutil"
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric/common/ledger/blkstorage"
+	"github.com/ZihuaZhang/fabric/common/metrics/disabled"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/stretchr/testify/require"
 )
 

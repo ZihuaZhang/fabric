@@ -10,10 +10,10 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/bccsp/sw"
-	"github.com/hyperledger/fabric/protoutil"
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/bccsp/sw"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/stretchr/testify/require"
 )
 
@@ -30,7 +30,7 @@ func createTestTransactionEnvelope(channel string, response *peer.Response, simR
 	}
 
 	// assemble a transaction from that proposal and endorsement
-	tx, err := protoutil.CreateSignedTx(prop, signer, presp)
+	tx, err := protoutil.CreateSignedTx(nil, prop, signer, presp)
 	if err != nil {
 		return nil, fmt.Errorf("CreateSignedTx failed, err %s", err)
 	}

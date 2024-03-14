@@ -13,13 +13,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/bccsp/sw"
-	"github.com/hyperledger/fabric/msp"
-	mspmgmt "github.com/hyperledger/fabric/msp/mgmt"
-	msptesttools "github.com/hyperledger/fabric/msp/mgmt/testtools"
-	"github.com/hyperledger/fabric/protoutil"
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/bccsp/sw"
+	"github.com/ZihuaZhang/fabric/msp"
+	mspmgmt "github.com/ZihuaZhang/fabric/msp/mgmt"
+	msptesttools "github.com/ZihuaZhang/fabric/msp/mgmt/testtools"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/stretchr/testify/require"
 )
 
@@ -127,7 +127,7 @@ func TestGoodPath(t *testing.T) {
 	}
 
 	// assemble a transaction from that proposal and endorsement
-	tx, err := protoutil.CreateSignedTx(prop, signer, presp)
+	tx, err := protoutil.CreateSignedTx(nil, prop, signer, presp)
 	if err != nil {
 		t.Fatalf("CreateSignedTx failed, err %s", err)
 		return
@@ -229,7 +229,7 @@ func TestBadTx(t *testing.T) {
 	}
 
 	// assemble a transaction from that proposal and endorsement
-	tx, err := protoutil.CreateSignedTx(prop, signer, presp)
+	tx, err := protoutil.CreateSignedTx(nil, prop, signer, presp)
 	if err != nil {
 		t.Fatalf("CreateSignedTx failed, err %s", err)
 		return
@@ -252,7 +252,7 @@ func TestBadTx(t *testing.T) {
 	}
 
 	// assemble a transaction from that proposal and endorsement
-	tx, err = protoutil.CreateSignedTx(prop, signer, presp)
+	tx, err = protoutil.CreateSignedTx(nil, prop, signer, presp)
 	if err != nil {
 		t.Fatalf("CreateSignedTx failed, err %s", err)
 		return
@@ -298,7 +298,7 @@ func Test2EndorsersAgree(t *testing.T) {
 	}
 
 	// assemble a transaction from that proposal and endorsement
-	tx, err := protoutil.CreateSignedTx(prop, signer, presp1, presp2)
+	tx, err := protoutil.CreateSignedTx(nil, prop, signer, presp1, presp2)
 	if err != nil {
 		t.Fatalf("CreateSignedTx failed, err %s", err)
 		return
@@ -343,7 +343,7 @@ func Test2EndorsersDisagree(t *testing.T) {
 	}
 
 	// assemble a transaction from that proposal and endorsement
-	_, err = protoutil.CreateSignedTx(prop, signer, presp1, presp2)
+	_, err = protoutil.CreateSignedTx(nil, prop, signer, presp1, presp2)
 	if err == nil {
 		t.Fatal("CreateSignedTx should have failed")
 		return

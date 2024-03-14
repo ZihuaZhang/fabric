@@ -12,7 +12,7 @@ package factory
 import (
 	"reflect"
 
-	"github.com/hyperledger/fabric/bccsp"
+	"github.com/ZihuaZhang/fabric/bccsp"
 	"github.com/mitchellh/mapstructure"
 	"github.com/pkg/errors"
 )

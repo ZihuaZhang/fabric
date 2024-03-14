@@ -9,9 +9,9 @@ package chaincode_test
 import (
 	"fmt"
 
+	"github.com/ZihuaZhang/fabric-protos-go/ledger/queryresult"
+	"github.com/ZihuaZhang/fabric/core/chaincode"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/ledger/queryresult"
-	"github.com/hyperledger/fabric/core/chaincode"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"github.com/pkg/errors"

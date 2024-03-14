@@ -10,11 +10,11 @@ import (
 	"testing"
 	"time"
 
-	peerprotos "github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/common/crypto/tlsgen"
-	"github.com/hyperledger/fabric/gossip/common"
-	"github.com/hyperledger/fabric/internal/pkg/comm"
-	"github.com/hyperledger/fabric/internal/pkg/gateway/mocks"
+	peerprotos "github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/common/crypto/tlsgen"
+	"github.com/ZihuaZhang/fabric/gossip/common"
+	"github.com/ZihuaZhang/fabric/internal/pkg/comm"
+	"github.com/ZihuaZhang/fabric/internal/pkg/gateway/mocks"
 	"github.com/stretchr/testify/require"
 )
 

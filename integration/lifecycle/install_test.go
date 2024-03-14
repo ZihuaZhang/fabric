@@ -11,11 +11,11 @@ import (
 	"path/filepath"
 	"syscall"
 
+	"github.com/ZihuaZhang/fabric/integration/channelparticipation"
+	"github.com/ZihuaZhang/fabric/integration/nwo"
+	"github.com/ZihuaZhang/fabric/integration/nwo/commands"
+	"github.com/ZihuaZhang/fabric/integration/nwo/fabricconfig"
 	docker "github.com/fsouza/go-dockerclient"
-	"github.com/hyperledger/fabric/integration/channelparticipation"
-	"github.com/hyperledger/fabric/integration/nwo"
-	"github.com/hyperledger/fabric/integration/nwo/commands"
-	"github.com/hyperledger/fabric/integration/nwo/fabricconfig"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"github.com/onsi/gomega/gbytes"
@@ -93,7 +93,7 @@ var _ = Describe("chaincode install", func() {
 				Name:            "failure-external",
 				Version:         "0.0",
 				Lang:            "golang",
-				Path:            "github.com/hyperledger/fabric/integration/chaincode/simple/cmd",
+				Path:            "github.com/ZihuaZhang/fabric/integration/chaincode/simple/cmd",
 				Ctor:            `{"Args":["init","a","100","b","200"]}`,
 				Policy:          `OR ('Org1MSP.member','Org2MSP.member')`,
 				SignaturePolicy: `OR ('Org1MSP.member','Org2MSP.member')`,

@@ -10,10 +10,10 @@ import (
 	"sync/atomic"
 
 	protos "github.com/SmartBFT-Go/consensus/smartbftprotos"
+	cb "github.com/ZihuaZhang/fabric-protos-go/common"
+	ab "github.com/ZihuaZhang/fabric-protos-go/orderer"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
-	cb "github.com/hyperledger/fabric-protos-go/common"
-	ab "github.com/hyperledger/fabric-protos-go/orderer"
-	"github.com/hyperledger/fabric/protoutil"
 )
 
 //go:generate mockery -dir . -name RPC -case underscore -output mocks

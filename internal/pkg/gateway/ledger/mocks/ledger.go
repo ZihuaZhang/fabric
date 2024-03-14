@@ -4,11 +4,11 @@ package mocks
 import (
 	"sync"
 
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric-protos-go/peer"
-	ledgerb "github.com/hyperledger/fabric/common/ledger"
-	ledgera "github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/internal/pkg/gateway/ledger"
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	ledgerb "github.com/ZihuaZhang/fabric/common/ledger"
+	ledgera "github.com/ZihuaZhang/fabric/core/ledger"
+	"github.com/ZihuaZhang/fabric/internal/pkg/gateway/ledger"
 )
 
 type Ledger struct {

@@ -24,20 +24,20 @@ import (
 	"time"
 
 	protos "github.com/SmartBFT-Go/consensus/smartbftprotos"
+	"github.com/ZihuaZhang/fabric-config/configtx"
+	"github.com/ZihuaZhang/fabric-config/configtx/orderer"
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	ordererProtos "github.com/ZihuaZhang/fabric-protos-go/orderer"
+	"github.com/ZihuaZhang/fabric/integration/channelparticipation"
+	conftx "github.com/ZihuaZhang/fabric/integration/configtx"
+	"github.com/ZihuaZhang/fabric/integration/nwo"
+	"github.com/ZihuaZhang/fabric/integration/nwo/commands"
+	"github.com/ZihuaZhang/fabric/integration/ordererclient"
+	"github.com/ZihuaZhang/fabric/orderer/common/cluster"
+	"github.com/ZihuaZhang/fabric/orderer/consensus/smartbft"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	docker "github.com/fsouza/go-dockerclient"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-config/configtx"
-	"github.com/hyperledger/fabric-config/configtx/orderer"
-	"github.com/hyperledger/fabric-protos-go/common"
-	ordererProtos "github.com/hyperledger/fabric-protos-go/orderer"
-	"github.com/hyperledger/fabric/integration/channelparticipation"
-	conftx "github.com/hyperledger/fabric/integration/configtx"
-	"github.com/hyperledger/fabric/integration/nwo"
-	"github.com/hyperledger/fabric/integration/nwo/commands"
-	"github.com/hyperledger/fabric/integration/ordererclient"
-	"github.com/hyperledger/fabric/orderer/common/cluster"
-	"github.com/hyperledger/fabric/orderer/consensus/smartbft"
-	"github.com/hyperledger/fabric/protoutil"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"github.com/onsi/gomega/gbytes"
@@ -237,7 +237,7 @@ var _ = Describe("EndToEnd Smart BFT configuration test", func() {
 			nwo.DeployChaincode(network, channel, network.Orderers[0], nwo.Chaincode{
 				Name:            "mycc",
 				Version:         "0.0",
-				Path:            components.Build("github.com/hyperledger/fabric/integration/chaincode/simple/cmd"),
+				Path:            components.Build("github.com/ZihuaZhang/fabric/integration/chaincode/simple/cmd"),
 				Ctor:            `{"Args":["init","a","100","b","200"]}`,
 				SignaturePolicy: `AND ('Org1MSP.member','Org2MSP.member')`,
 				Sequence:        "1",
@@ -1705,7 +1705,7 @@ var _ = Describe("EndToEnd Smart BFT configuration test", func() {
 			chaincode := nwo.Chaincode{
 				Name:            "mycc",
 				Version:         "0.0",
-				Path:            components.Build("github.com/hyperledger/fabric/integration/chaincode/simple/cmd"),
+				Path:            components.Build("github.com/ZihuaZhang/fabric/integration/chaincode/simple/cmd"),
 				Lang:            "binary",
 				PackageFile:     filepath.Join(testDir, "simplecc.tar.gz"),
 				Ctor:            `{"Args":["init","a","100","b","200"]}`,
@@ -2301,7 +2301,7 @@ func deployChaincode(network *nwo.Network, channel string, testDir string) {
 	nwo.DeployChaincode(network, channel, network.Orderers[0], nwo.Chaincode{
 		Name:            "mycc",
 		Version:         "0.0",
-		Path:            components.Build("github.com/hyperledger/fabric/integration/chaincode/simple/cmd"),
+		Path:            components.Build("github.com/ZihuaZhang/fabric/integration/chaincode/simple/cmd"),
 		Lang:            "binary",
 		PackageFile:     filepath.Join(testDir, "simplecc.tar.gz"),
 		Ctor:            `{"Args":["init","a","100","b","200"]}`,

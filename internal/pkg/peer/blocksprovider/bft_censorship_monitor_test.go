@@ -14,12 +14,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric-protos-go/orderer"
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/internal/pkg/peer/blocksprovider"
-	"github.com/hyperledger/fabric/internal/pkg/peer/blocksprovider/fake"
-	"github.com/hyperledger/fabric/internal/pkg/peer/orderers"
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric-protos-go/orderer"
+	"github.com/ZihuaZhang/fabric/common/flogging"
+	"github.com/ZihuaZhang/fabric/internal/pkg/peer/blocksprovider"
+	"github.com/ZihuaZhang/fabric/internal/pkg/peer/blocksprovider/fake"
+	"github.com/ZihuaZhang/fabric/internal/pkg/peer/orderers"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
 )

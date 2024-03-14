@@ -12,11 +12,11 @@ import (
 	"testing"
 	"time"
 
+	cb "github.com/ZihuaZhang/fabric-protos-go/common"
+	mb "github.com/ZihuaZhang/fabric-protos-go/msp"
+	"github.com/ZihuaZhang/fabric/common/policydsl"
+	"github.com/ZihuaZhang/fabric/msp"
 	"github.com/golang/protobuf/proto"
-	cb "github.com/hyperledger/fabric-protos-go/common"
-	mb "github.com/hyperledger/fabric-protos-go/msp"
-	"github.com/hyperledger/fabric/common/policydsl"
-	"github.com/hyperledger/fabric/msp"
 	"github.com/stretchr/testify/require"
 )
 

@@ -8,17 +8,17 @@ package gateway
 import (
 	"context"
 
-	peerproto "github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/common/channelconfig"
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/core/peer"
-	"github.com/hyperledger/fabric/core/scc"
-	gdiscovery "github.com/hyperledger/fabric/gossip/discovery"
-	"github.com/hyperledger/fabric/internal/pkg/comm"
-	"github.com/hyperledger/fabric/internal/pkg/gateway/commit"
-	"github.com/hyperledger/fabric/internal/pkg/gateway/config"
-	"github.com/hyperledger/fabric/internal/pkg/gateway/ledger"
-	"github.com/hyperledger/fabric/internal/pkg/peer/orderers"
+	peerproto "github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/common/channelconfig"
+	"github.com/ZihuaZhang/fabric/common/flogging"
+	"github.com/ZihuaZhang/fabric/core/peer"
+	"github.com/ZihuaZhang/fabric/core/scc"
+	gdiscovery "github.com/ZihuaZhang/fabric/gossip/discovery"
+	"github.com/ZihuaZhang/fabric/internal/pkg/comm"
+	"github.com/ZihuaZhang/fabric/internal/pkg/gateway/commit"
+	"github.com/ZihuaZhang/fabric/internal/pkg/gateway/config"
+	"github.com/ZihuaZhang/fabric/internal/pkg/gateway/ledger"
+	"github.com/ZihuaZhang/fabric/internal/pkg/peer/orderers"
 	"google.golang.org/grpc"
 )
 

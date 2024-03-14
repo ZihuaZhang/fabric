@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"runtime"
 
-	"github.com/hyperledger/fabric/common/metadata"
+	"github.com/ZihuaZhang/fabric/common/metadata"
 )
 
 const ProgramName = "orderer"

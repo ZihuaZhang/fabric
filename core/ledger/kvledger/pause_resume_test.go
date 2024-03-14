@@ -9,10 +9,10 @@ package kvledger
 import (
 	"testing"
 
-	"github.com/hyperledger/fabric-protos-go/common"
-	configtxtest "github.com/hyperledger/fabric/common/configtx/test"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/msgs"
-	"github.com/hyperledger/fabric/core/ledger/mock"
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	configtxtest "github.com/ZihuaZhang/fabric/common/configtx/test"
+	"github.com/ZihuaZhang/fabric/core/ledger/kvledger/msgs"
+	"github.com/ZihuaZhang/fabric/core/ledger/mock"
 	"github.com/stretchr/testify/require"
 )
 

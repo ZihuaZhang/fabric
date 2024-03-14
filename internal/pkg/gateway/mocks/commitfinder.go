@@ -5,7 +5,7 @@ import (
 	"context"
 	"sync"
 
-	"github.com/hyperledger/fabric/internal/pkg/gateway/commit"
+	"github.com/ZihuaZhang/fabric/internal/pkg/gateway/commit"
 )
 
 type CommitFinder struct {

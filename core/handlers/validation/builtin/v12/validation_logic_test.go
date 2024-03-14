@@ -10,27 +10,27 @@ import (
 	"os"
 	"testing"
 
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset/kvrwset"
+	mspproto "github.com/ZihuaZhang/fabric-protos-go/msp"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/bccsp/sw"
+	"github.com/ZihuaZhang/fabric/common/capabilities"
+	"github.com/ZihuaZhang/fabric/common/channelconfig"
+	"github.com/ZihuaZhang/fabric/common/policydsl"
+	"github.com/ZihuaZhang/fabric/core/committer/txvalidator/v14"
+	"github.com/ZihuaZhang/fabric/core/common/ccprovider"
+	"github.com/ZihuaZhang/fabric/core/common/privdata"
+	validation "github.com/ZihuaZhang/fabric/core/handlers/validation/api/capabilities"
+	vs "github.com/ZihuaZhang/fabric/core/handlers/validation/api/state"
+	"github.com/ZihuaZhang/fabric/core/handlers/validation/builtin/v12/mocks"
+	"github.com/ZihuaZhang/fabric/core/ledger/kvledger/txmgmt/rwsetutil"
+	"github.com/ZihuaZhang/fabric/core/scc/lscc"
+	"github.com/ZihuaZhang/fabric/msp"
+	mspmgmt "github.com/ZihuaZhang/fabric/msp/mgmt"
+	msptesttools "github.com/ZihuaZhang/fabric/msp/mgmt/testtools"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric-protos-go/ledger/rwset/kvrwset"
-	mspproto "github.com/hyperledger/fabric-protos-go/msp"
-	"github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/bccsp/sw"
-	"github.com/hyperledger/fabric/common/capabilities"
-	"github.com/hyperledger/fabric/common/channelconfig"
-	"github.com/hyperledger/fabric/common/policydsl"
-	"github.com/hyperledger/fabric/core/committer/txvalidator/v14"
-	"github.com/hyperledger/fabric/core/common/ccprovider"
-	"github.com/hyperledger/fabric/core/common/privdata"
-	validation "github.com/hyperledger/fabric/core/handlers/validation/api/capabilities"
-	vs "github.com/hyperledger/fabric/core/handlers/validation/api/state"
-	"github.com/hyperledger/fabric/core/handlers/validation/builtin/v12/mocks"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/rwsetutil"
-	"github.com/hyperledger/fabric/core/scc/lscc"
-	"github.com/hyperledger/fabric/msp"
-	mspmgmt "github.com/hyperledger/fabric/msp/mgmt"
-	msptesttools "github.com/hyperledger/fabric/msp/mgmt/testtools"
-	"github.com/hyperledger/fabric/protoutil"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
 )
@@ -57,9 +57,9 @@ func createTx(endorsedByDuplicatedIdentity bool) (*common.Envelope, error) {
 
 	var env *common.Envelope
 	if endorsedByDuplicatedIdentity {
-		env, err = protoutil.CreateSignedTx(prop, id, presp, presp)
+		env, err = protoutil.CreateSignedTx(nil, prop, id, presp, presp)
 	} else {
-		env, err = protoutil.CreateSignedTx(prop, id, presp)
+		env, err = protoutil.CreateSignedTx(nil, prop, id, presp)
 	}
 	if err != nil {
 		return nil, err
@@ -166,7 +166,7 @@ func createLSCCTxPutCdsWithCollection(ccname, ccver, f string, res, cdsbytes []b
 		return nil, err
 	}
 
-	return protoutil.CreateSignedTx(prop, id, presp)
+	return protoutil.CreateSignedTx(nil, prop, id, presp)
 }
 
 func createLSCCTxPutCds(ccname, ccver, f string, res, cdsbytes []byte, putcds bool) (*common.Envelope, error) {
@@ -223,7 +223,7 @@ func createLSCCTxPutCds(ccname, ccver, f string, res, cdsbytes []byte, putcds bo
 		return nil, err
 	}
 
-	return protoutil.CreateSignedTx(prop, id, presp)
+	return protoutil.CreateSignedTx(nil, prop, id, presp)
 }
 
 func getSignedByMSPMemberPolicy(mspID string) ([]byte, error) {
@@ -830,7 +830,7 @@ func TestValidateDeployNOKNilChaincodeSpec(t *testing.T) {
 	presp, err := protoutil.CreateProposalResponse(prop.Header, prop.Payload, &peer.Response{Status: 200}, res, nil, ccid, id)
 	require.NoError(t, err)
 
-	env, err := protoutil.CreateSignedTx(prop, id, presp)
+	env, err := protoutil.CreateSignedTx(nil, prop, id, presp)
 	require.NoError(t, err)
 
 	// good path: signed by the right MSP

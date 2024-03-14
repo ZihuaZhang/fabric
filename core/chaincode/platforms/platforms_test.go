@@ -13,11 +13,11 @@ import (
 	"fmt"
 	"io"
 
+	"github.com/ZihuaZhang/fabric/common/metadata"
+	"github.com/ZihuaZhang/fabric/core/chaincode/platforms"
+	"github.com/ZihuaZhang/fabric/core/chaincode/platforms/mock"
+	"github.com/ZihuaZhang/fabric/core/chaincode/platforms/util"
 	docker "github.com/fsouza/go-dockerclient"
-	"github.com/hyperledger/fabric/common/metadata"
-	"github.com/hyperledger/fabric/core/chaincode/platforms"
-	"github.com/hyperledger/fabric/core/chaincode/platforms/mock"
-	"github.com/hyperledger/fabric/core/chaincode/platforms/util"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )

@@ -7,8 +7,8 @@ SPDX-License-Identifier: Apache-2.0
 package callee
 
 import (
-	"github.com/hyperledger/fabric-chaincode-go/shim"
-	pb "github.com/hyperledger/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric-chaincode-go/shim"
+	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
 )
 
 // CC example simple Chaincode implementation

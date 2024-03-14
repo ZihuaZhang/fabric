@@ -10,8 +10,8 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/ZihuaZhang/fabric/internal/peer/snapshot/mock"
 	"github.com/golang/protobuf/ptypes/empty"
-	"github.com/hyperledger/fabric/internal/peer/snapshot/mock"
 	"github.com/onsi/gomega/gbytes"
 	"github.com/stretchr/testify/require"
 )

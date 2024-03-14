@@ -10,8 +10,8 @@ import (
 	"bytes"
 	"context"
 
+	"github.com/ZihuaZhang/fabric/common/util"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/common/util"
 	"github.com/pkg/errors"
 )
 

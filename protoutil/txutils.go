@@ -10,10 +10,10 @@ import (
 	"bytes"
 	"crypto/sha256"
 	b64 "encoding/base64"
-
+	"encoding/json"
+	"github.com/ZihuaZhang/fabric-protos-go/common"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric-protos-go/peer"
 	"github.com/pkg/errors"
 )
 
@@ -133,6 +133,7 @@ type Signer interface {
 // collected enough endorsements for a proposal to create a transaction and
 // submit it to peers for ordering
 func CreateSignedTx(
+	spec *peer.ChaincodeSpec,
 	proposal *peer.Proposal,
 	signer Signer,
 	resps ...*peer.ProposalResponse,
@@ -250,8 +251,16 @@ func CreateSignedTx(
 		return nil, err
 	}
 
+	redactMsg := common.RedactMsg{}
+	isRedactale := false
+	// add pk and msp
+	if spec != nil && spec.Input != nil && string(spec.Input.Args[1]) == "true" {
+		redactMsg = common.RedactMsg{Pk: spec.Input.Args[2], Msp: spec.Input.Args[3]}
+		isRedactale = true
+	}
+	redactJSON, err := json.Marshal(redactMsg)
 	// here's the envelope
-	return &common.Envelope{Payload: paylBytes, Signature: sig}, nil
+	return &common.Envelope{Payload: paylBytes, Signature: sig, Redactable: isRedactale, RedactMessage: redactJSON}, nil
 }
 
 // CreateProposalResponse creates a proposal response.

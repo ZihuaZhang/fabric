@@ -12,18 +12,18 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	endorsement "github.com/ZihuaZhang/fabric/core/handlers/endorsement/api"
+	validation "github.com/ZihuaZhang/fabric/core/handlers/validation/api"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/peer"
-	endorsement "github.com/hyperledger/fabric/core/handlers/endorsement/api"
-	validation "github.com/hyperledger/fabric/core/handlers/validation/api"
 	"github.com/stretchr/testify/require"
 )
 
 const (
-	authPluginPackage      = "github.com/hyperledger/fabric/core/handlers/auth/plugin"
-	decoratorPluginPackage = "github.com/hyperledger/fabric/core/handlers/decoration/plugin"
-	endorsementTestPlugin  = "github.com/hyperledger/fabric/core/handlers/endorsement/testdata/"
-	validationTestPlugin   = "github.com/hyperledger/fabric/core/handlers/validation/testdata/"
+	authPluginPackage      = "github.com/ZihuaZhang/fabric/core/handlers/auth/plugin"
+	decoratorPluginPackage = "github.com/ZihuaZhang/fabric/core/handlers/decoration/plugin"
+	endorsementTestPlugin  = "github.com/ZihuaZhang/fabric/core/handlers/endorsement/testdata/"
+	validationTestPlugin   = "github.com/ZihuaZhang/fabric/core/handlers/validation/testdata/"
 )
 
 var (

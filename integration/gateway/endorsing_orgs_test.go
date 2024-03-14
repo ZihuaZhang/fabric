@@ -12,13 +12,13 @@ import (
 	"path/filepath"
 	"syscall"
 
+	"github.com/ZihuaZhang/fabric-protos-go/gateway"
+	"github.com/ZihuaZhang/fabric-protos-go/peer"
+	"github.com/ZihuaZhang/fabric/integration/channelparticipation"
+	"github.com/ZihuaZhang/fabric/integration/nwo"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	docker "github.com/fsouza/go-dockerclient"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/gateway"
-	"github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/hyperledger/fabric/integration/channelparticipation"
-	"github.com/hyperledger/fabric/integration/nwo"
-	"github.com/hyperledger/fabric/protoutil"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"github.com/tedsuo/ifrit"
@@ -76,7 +76,7 @@ var _ = Describe("GatewayService with endorsing orgs", func() {
 		chaincode := nwo.Chaincode{
 			Name:              "pvtmarblescc",
 			Version:           "0.0",
-			Path:              components.Build("github.com/hyperledger/fabric/integration/chaincode/marbles_private/cmd"),
+			Path:              components.Build("github.com/ZihuaZhang/fabric/integration/chaincode/marbles_private/cmd"),
 			Lang:              "binary",
 			PackageFile:       filepath.Join(testDir, "pvtmarblescc.tar.gz"),
 			Policy:            `OR ('Org1MSP.member', 'Org2MSP.member', 'Org3MSP.member')`,

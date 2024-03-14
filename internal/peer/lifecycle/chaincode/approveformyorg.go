@@ -11,14 +11,14 @@ import (
 	"crypto/tls"
 	"time"
 
+	cb "github.com/ZihuaZhang/fabric-protos-go/common"
+	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
+	lb "github.com/ZihuaZhang/fabric-protos-go/peer/lifecycle"
+	"github.com/ZihuaZhang/fabric/bccsp"
+	"github.com/ZihuaZhang/fabric/internal/peer/chaincode"
+	"github.com/ZihuaZhang/fabric/internal/peer/common"
+	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
-	cb "github.com/hyperledger/fabric-protos-go/common"
-	pb "github.com/hyperledger/fabric-protos-go/peer"
-	lb "github.com/hyperledger/fabric-protos-go/peer/lifecycle"
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/internal/peer/chaincode"
-	"github.com/hyperledger/fabric/internal/peer/common"
-	"github.com/hyperledger/fabric/protoutil"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -202,7 +202,7 @@ func (a *ApproverForMyOrg) Approve() error {
 		return errors.Errorf("proposal failed with status: %d - %s", proposalResponse.Response.Status, proposalResponse.Response.Message)
 	}
 	// assemble a signed transaction (it's an Envelope message)
-	env, err := protoutil.CreateSignedTx(proposal, a.Signer, responses...)
+	env, err := protoutil.CreateSignedTx(nil, proposal, a.Signer, responses...)
 	if err != nil {
 		return errors.WithMessage(err, "failed to create signed transaction")
 	}
