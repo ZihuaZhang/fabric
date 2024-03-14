@@ -2,8 +2,9 @@ package protoutil
 
 import (
 	"bytes"
-	"github.com/fentec-project/gofe/abe"
 	"math/big"
+
+	"github.com/fentec-project/gofe/abe"
 
 	"fmt"
 	"strconv"

@@ -9,6 +9,7 @@ package etcdraft
 import (
 	"crypto/sha256"
 	"encoding/json"
+
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
 	"github.com/ZihuaZhang/fabric/common/flogging"
 	"github.com/ZihuaZhang/fabric/protoutil"
