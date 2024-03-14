@@ -8,16 +8,16 @@ package protoutil
 
 import (
 	"bytes"
+	"crypto/rand"
+	"fmt"
 	"math/big"
+	"strconv"
 
 	"github.com/fentec-project/gofe/abe"
 
-	"fmt"
-	"strconv"
-
 	//"crypto/aes"
 	//cbc "crypto/cipher"
-	"crypto/rand"
+
 	//"crypto/sha256"
 
 	"github.com/fentec-project/bn256"
@@ -86,15 +86,21 @@ func (a *FAME) GenerateMasterKeys() (*FAMEPubKey, *FAMESecKey, error) {
 	}
 
 	partInt := [4]*big.Int{val[0], val[1], val[2], val[3]}
-	partG1 := [3]*bn256.G1{new(bn256.G1).ScalarBaseMult(val[4]),
+	partG1 := [3]*bn256.G1{
+		new(bn256.G1).ScalarBaseMult(val[4]),
 		new(bn256.G1).ScalarBaseMult(val[5]),
-		new(bn256.G1).ScalarBaseMult(val[6])}
-	partG2 := [2]*bn256.G2{new(bn256.G2).ScalarBaseMult(val[0]),
-		new(bn256.G2).ScalarBaseMult(val[1])}
+		new(bn256.G1).ScalarBaseMult(val[6]),
+	}
+	partG2 := [2]*bn256.G2{
+		new(bn256.G2).ScalarBaseMult(val[0]),
+		new(bn256.G2).ScalarBaseMult(val[1]),
+	}
 	tmp1 := new(big.Int).Mod(new(big.Int).Add(new(big.Int).Mul(val[0], val[4]), val[6]), a.P)
 	tmp2 := new(big.Int).Mod(new(big.Int).Add(new(big.Int).Mul(val[1], val[5]), val[6]), a.P)
-	partGT := [2]*bn256.GT{new(bn256.GT).ScalarBaseMult(tmp1),
-		new(bn256.GT).ScalarBaseMult(tmp2)}
+	partGT := [2]*bn256.GT{
+		new(bn256.GT).ScalarBaseMult(tmp1),
+		new(bn256.GT).ScalarBaseMult(tmp2),
+	}
 
 	return &FAMEPubKey{PartG2: partG2, PartGT: partGT, PkCH: pkCH},
 		&FAMESecKey{PartInt: partInt, PartG1: partG1, SkCH: skCH}, nil
@@ -133,7 +139,7 @@ func (a *FAME) Hash(msp *abe.MSP, pk *FAMEPubKey) (*FAMECipher, error) {
 
 	fmt.Println("Hash h:", h)
 
-	var FAMECi, _ = a.Encrypt(R, msp, pk)
+	FAMECi, _ := a.Encrypt(R, msp, pk)
 	FAMECi.Msg = m
 	FAMECi.Hash = h
 	FAMECi.RandomR = &RandomHashR{
@@ -201,9 +207,11 @@ func (a *FAME) Encrypt(R *big.Int, msp *abe.MSP, pk *FAMEPubKey) (*FAMECipher, e
 	if err != nil {
 		return nil, err
 	}
-	ct0 := [3]*bn256.G2{new(bn256.G2).ScalarMult(pk.PartG2[0], s[0]),
+	ct0 := [3]*bn256.G2{
+		new(bn256.G2).ScalarMult(pk.PartG2[0], s[0]),
 		new(bn256.G2).ScalarMult(pk.PartG2[1], s[1]),
-		new(bn256.G2).ScalarBaseMult(new(big.Int).Add(s[0], s[1]))}
+		new(bn256.G2).ScalarBaseMult(new(big.Int).Add(s[0], s[1])),
+	}
 
 	ct := make([][3]*bn256.G1, len(msp.Mat))
 	for i := 0; i < len(msp.Mat); i++ {
@@ -249,7 +257,7 @@ func (a *FAME) Encrypt(R *big.Int, msp *abe.MSP, pk *FAMEPubKey) (*FAMECipher, e
 	}
 	ctPrime := new(bn256.GT).ScalarMult(pk.PartGT[0], s[0])
 	ctPrime.Add(ctPrime, new(bn256.GT).ScalarMult(pk.PartGT[1], s[1]))
-	var RGT, _ = bn256.MapStringToGT(R.String())
+	RGT, _ := bn256.MapStringToGT(R.String())
 	ctPrime.Add(ctPrime, RGT)
 
 	return &FAMECipher{Ct0: ct0, Ct: ct, CtPrime: ctPrime, Msp: msp}, nil
@@ -286,9 +294,11 @@ func (a *FAME) KeyGen(gamma []string, sk *FAMESecKey) (*FAMEAttribKeys, error) {
 	pow2 := new(big.Int).Add(r[0], r[1])
 	pow2.Mod(pow2, a.P)
 
-	k0 := [3]*bn256.G2{new(bn256.G2).ScalarBaseMult(pow0),
+	k0 := [3]*bn256.G2{
+		new(bn256.G2).ScalarBaseMult(pow0),
 		new(bn256.G2).ScalarBaseMult(pow1),
-		new(bn256.G2).ScalarBaseMult(pow2)}
+		new(bn256.G2).ScalarBaseMult(pow2),
+	}
 
 	a0Inv := new(big.Int).ModInverse(sk.PartInt[0], a.P)
 	a1Inv := new(big.Int).ModInverse(sk.PartInt[1], a.P)
