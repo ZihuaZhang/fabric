@@ -11,6 +11,7 @@ import (
 	"crypto/sha256"
 	b64 "encoding/base64"
 	"encoding/json"
+	"fmt"
 
 	"github.com/ZihuaZhang/fabric-protos-go/common"
 	"github.com/ZihuaZhang/fabric-protos-go/peer"
@@ -260,6 +261,10 @@ func CreateSignedTx(
 		isRedactale = true
 	}
 	redactJSON, err := json.Marshal(redactMsg)
+	if err != nil {
+		// 处理错误
+		fmt.Println(err)
+	}
 	// here's the envelope
 	return &common.Envelope{Payload: paylBytes, Signature: sig, Redactable: isRedactale, RedactMessage: redactJSON}, nil
 }

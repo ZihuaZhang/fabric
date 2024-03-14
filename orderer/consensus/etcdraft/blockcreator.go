@@ -15,7 +15,6 @@ import (
 	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/fentec-project/gofe/abe"
 	"github.com/golang/protobuf/proto"
-	"github.com/pkg/errors"
 )
 
 // blockCreator holds number and hash of latest block
@@ -33,7 +32,7 @@ func (bc *blockCreator) createNextBlock(envs []*cb.Envelope) *cb.Block {
 	}
 	var dataHash []byte
 	for i, env := range envs {
-		err0 := errors.New("nothing")
+		var err0 error
 		data.Data[i], err0 = proto.Marshal(env)
 		if err0 != nil {
 			return nil
