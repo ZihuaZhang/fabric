@@ -10,7 +10,9 @@ swagger_doc="${fabric_dir}/swagger/swagger-fabric.json"
 
 check_spec() {
     swagger_doc_check="${fabric_dir}/swagger/swagger-fabric-check.json"
+    echo "start $swagger_doc_check"
     swagger generate spec -o "$swagger_doc_check" --scan-models --exclude-deps --input "$swagger_tags"
+    echo "start $swagger_tags"
     if [ -n "$(diff "$swagger_doc_check" "$swagger_doc")" ]; then
         echo "The Fabric swagger is out of date."
         echo "Please run '$0 generate' to update the swagger."
