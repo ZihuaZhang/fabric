@@ -10,7 +10,13 @@ swagger_doc="${fabric_dir}/swagger/swagger-fabric.json"
 
 check_spec() {
     swagger_doc_check="${fabric_dir}/swagger/swagger-fabric-check.json"
-    echo "start $swagger_doc_check"
+    # 检查文件是否存在
+    if [ -f "$swagger_doc_check" ]; then
+        # 如果文件存在，则删除
+        rm "$swagger_doc_check"
+    fi
+    # 创建一个新的同名文件
+    touch "$swagger_doc_check"
     swagger generate spec -o "$swagger_doc_check" --scan-models --exclude-deps --input "$swagger_tags"
     echo "start $swagger_tags"
     if [ -n "$(diff "$swagger_doc_check" "$swagger_doc")" ]; then
