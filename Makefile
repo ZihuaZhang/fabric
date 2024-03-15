@@ -199,12 +199,14 @@ generate-metrics-doc:
 .PHONY: generate-swagger
 generate-swagger: gotool.swagger
 	@echo "Generating swagger..."
-	./scripts/swagger.sh generate
+	cd scripts
+	bash swagger.sh generate
 
 .PHONY: check-swagger
 check-swagger: gotool.swagger
 	@echo "SWAGGER: Checking for outdated swagger..."
-	./scripts/swagger.sh check
+	cd scripts
+	bash swagger.sh check
 
 
 
