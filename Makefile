@@ -196,15 +196,17 @@ generate-metrics-doc:
 	@echo "Generating metrics reference documentation..."
 	./scripts/metrics_doc.sh generate
 
+.PHONY: generate-swagger
+generate-swagger: gotool.swagger
+	@echo "Generating swagger..."
+	./scripts/swagger.sh generate
+
 .PHONY: check-swagger
 check-swagger: gotool.swagger
 	@echo "SWAGGER: Checking for outdated swagger..."
 	./scripts/swagger.sh check
 
-.PHONY: generate-swagger
-generate-swagger: gotool.swagger
-	@echo "Generating swagger..."
-	./scripts/swagger.sh generate
+
 
 .PHONY: protos
 protos: gotool.protoc-gen-go
