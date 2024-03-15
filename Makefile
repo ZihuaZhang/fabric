@@ -207,6 +207,7 @@ check-swagger: gotool.swagger
 	@echo "SWAGGER: Checking for outdated swagger..."
 	cd scripts
 	bash swagger.sh check
+	cd ../
 
 
 
@@ -214,6 +215,7 @@ check-swagger: gotool.swagger
 protos: gotool.protoc-gen-go
 	@echo "Compiling non-API protos..."
 	./scripts/compile_protos.sh
+	cd ../
 
 .PHONY: native
 native: $(RELEASE_EXES)
