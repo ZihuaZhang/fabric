@@ -17,7 +17,6 @@ import (
 
 	"github.com/ZihuaZhang/fabric-protos-go/common"
 	"github.com/ZihuaZhang/fabric-protos-go/discovery"
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric/common/channelconfig"
 	"github.com/ZihuaZhang/fabric/common/configtx/test"
 	"github.com/ZihuaZhang/fabric/discovery/support/config"
@@ -26,6 +25,7 @@ import (
 	"github.com/ZihuaZhang/fabric/internal/configtxgen/genesisconfig"
 	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
+	"github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/onsi/gomega/gexec"
 	"github.com/stretchr/testify/require"
 )
@@ -45,7 +45,7 @@ func TestMSPIDMapping(t *testing.T) {
 	require.NoError(t, err)
 	defer os.Remove(cryptogen)
 
-	idemixgen, err := gexec.Build("github.com/ZihuaZhang/idemix/tools/idemixgen", "-mod=mod")
+	idemixgen, err := gexec.Build("github.com/IBM/idemix/tools/idemixgen", "-mod=mod")
 	require.NoError(t, err)
 	defer os.Remove(idemixgen)
 

@@ -19,8 +19,8 @@ import (
 
 	"github.com/ZihuaZhang/fabric-config/configtx/membership"
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
-	mb "github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/golang/protobuf/proto"
+	mb "github.com/hyperledger/fabric-protos-go/msp"
 )
 
 // MSP is the configuration information for a Fabric MSP.

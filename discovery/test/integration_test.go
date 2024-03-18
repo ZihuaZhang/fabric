@@ -26,7 +26,6 @@ import (
 
 	"github.com/ZihuaZhang/fabric-protos-go/common"
 	"github.com/ZihuaZhang/fabric-protos-go/gossip"
-	msprotos "github.com/ZihuaZhang/fabric-protos-go/msp"
 	. "github.com/ZihuaZhang/fabric-protos-go/peer"
 	"github.com/ZihuaZhang/fabric/bccsp/sw"
 	bccsp "github.com/ZihuaZhang/fabric/bccsp/utils"
@@ -57,6 +56,7 @@ import (
 	"github.com/ZihuaZhang/fabric/msp"
 	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
+	msprotos "github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/onsi/gomega/gexec"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
@@ -624,7 +624,7 @@ func buildBinaries() error {
 		return errors.WithStack(err)
 	}
 
-	idemixgen, err = gexec.Build("github.com/ZihuaZhang/idemix/tools/idemixgen", "-mod=mod")
+	idemixgen, err = gexec.Build("github.com/IBM/idemix/tools/idemixgen", "-mod=mod")
 	if err != nil {
 		return errors.WithStack(err)
 	}

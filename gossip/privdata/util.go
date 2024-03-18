@@ -12,12 +12,12 @@ import (
 	"github.com/ZihuaZhang/fabric-protos-go/common"
 	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset"
 	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset/kvrwset"
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric-protos-go/peer"
 	"github.com/ZihuaZhang/fabric/core/ledger"
 	"github.com/ZihuaZhang/fabric/core/ledger/kvledger/txmgmt/rwsetutil"
 	privdatacommon "github.com/ZihuaZhang/fabric/gossip/privdata/common"
 	"github.com/golang/protobuf/proto"
+	"github.com/hyperledger/fabric-protos-go/msp"
 )
 
 type txValidationFlags []uint8

@@ -18,7 +18,6 @@ import (
 	"github.com/SmartBFT-Go/consensus/pkg/types"
 	"github.com/SmartBFT-Go/consensus/smartbftprotos"
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric-protos-go/orderer/smartbft"
 	"github.com/ZihuaZhang/fabric/bccsp"
 	"github.com/ZihuaZhang/fabric/common/channelconfig"
@@ -32,6 +31,7 @@ import (
 	"github.com/ZihuaZhang/fabric/orderer/consensus/smartbft/util"
 	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
+	"github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/pkg/errors"
 )
 

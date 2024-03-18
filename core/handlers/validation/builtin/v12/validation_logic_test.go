@@ -12,7 +12,6 @@ import (
 
 	"github.com/ZihuaZhang/fabric-protos-go/common"
 	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset/kvrwset"
-	mspproto "github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric-protos-go/peer"
 	"github.com/ZihuaZhang/fabric/bccsp/sw"
 	"github.com/ZihuaZhang/fabric/common/capabilities"
@@ -31,6 +30,7 @@ import (
 	msptesttools "github.com/ZihuaZhang/fabric/msp/mgmt/testtools"
 	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
+	mspproto "github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
 )

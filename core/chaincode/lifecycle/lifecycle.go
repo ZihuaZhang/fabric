@@ -14,7 +14,6 @@ import (
 	"sync"
 
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
 	lb "github.com/ZihuaZhang/fabric-protos-go/peer/lifecycle"
 	"github.com/ZihuaZhang/fabric/common/chaincode"
@@ -24,6 +23,7 @@ import (
 	"github.com/ZihuaZhang/fabric/core/chaincode/persistence"
 	"github.com/ZihuaZhang/fabric/core/container"
 	"github.com/ZihuaZhang/fabric/protoutil"
+	"github.com/hyperledger/fabric-protos-go/msp"
 
 	"github.com/golang/protobuf/proto"
 	"github.com/pkg/errors"

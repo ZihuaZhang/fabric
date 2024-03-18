@@ -33,7 +33,7 @@ func (c *Components) Discover() string {
 }
 
 func (c *Components) Idemixgen() string {
-	idemixgen, err := gexec.Build("github.com/ZihuaZhang/idemix/tools/idemixgen", "-mod=mod")
+	idemixgen, err := gexec.Build("github.com/IBM/idemix/tools/idemixgen", "-mod=mod")
 	Expect(err).NotTo(HaveOccurred())
 	return idemixgen
 }

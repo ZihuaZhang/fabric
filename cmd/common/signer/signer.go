@@ -17,10 +17,10 @@ import (
 	"os"
 	"strings"
 
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric/bccsp/utils"
 	"github.com/ZihuaZhang/fabric/common/util"
 	"github.com/ZihuaZhang/fabric/protoutil"
+	"github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/pkg/errors"
 )
 

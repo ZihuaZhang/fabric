@@ -15,9 +15,9 @@ import (
 	"time"
 
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric/gossip/common"
 	"github.com/golang/protobuf/proto"
+	"github.com/hyperledger/fabric-protos-go/msp"
 	"google.golang.org/grpc"
 )
 

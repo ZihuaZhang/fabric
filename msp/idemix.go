@@ -6,8 +6,8 @@ SPDX-License-Identifier: Apache-2.0
 package msp
 
 import (
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
-	"github.com/ZihuaZhang/idemix"
+	"github.com/IBM/idemix"
+	"github.com/hyperledger/fabric-protos-go/msp"
 )
 
 type idemixSigningIdentityWrapper struct {

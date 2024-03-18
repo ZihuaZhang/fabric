@@ -11,13 +11,13 @@ import (
 
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
 	dp "github.com/ZihuaZhang/fabric-protos-go/discovery"
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric/bccsp/sw"
 	"github.com/ZihuaZhang/fabric/common/channelconfig"
 	"github.com/ZihuaZhang/fabric/common/crypto/tlsgen"
 	"github.com/ZihuaZhang/fabric/core/config/configtest"
 	"github.com/ZihuaZhang/fabric/internal/configtxgen/encoder"
 	"github.com/ZihuaZhang/fabric/internal/configtxgen/genesisconfig"
+	"github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/stretchr/testify/require"
 )
 

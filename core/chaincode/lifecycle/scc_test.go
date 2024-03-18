@@ -14,7 +14,6 @@ import (
 	"github.com/ZihuaZhang/fabric/core/ledger"
 
 	"github.com/ZihuaZhang/fabric-chaincode-go/shim"
-	mspprotos "github.com/ZihuaZhang/fabric-protos-go/msp"
 	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
 	lb "github.com/ZihuaZhang/fabric-protos-go/peer/lifecycle"
 	"github.com/ZihuaZhang/fabric/common/chaincode"
@@ -26,6 +25,7 @@ import (
 	"github.com/ZihuaZhang/fabric/core/dispatcher"
 	"github.com/ZihuaZhang/fabric/msp"
 	"github.com/golang/protobuf/proto"
+	mspprotos "github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/pkg/errors"
 
 	. "github.com/onsi/ginkgo/v2"

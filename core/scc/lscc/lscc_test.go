@@ -19,7 +19,6 @@ import (
 	"github.com/ZihuaZhang/fabric-chaincode-go/shimtest"
 	"github.com/ZihuaZhang/fabric-protos-go/common"
 	"github.com/ZihuaZhang/fabric-protos-go/ledger/queryresult"
-	mb "github.com/ZihuaZhang/fabric-protos-go/msp"
 	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
 	"github.com/ZihuaZhang/fabric/bccsp/sw"
 	"github.com/ZihuaZhang/fabric/common/channelconfig"
@@ -41,6 +40,7 @@ import (
 	mspmocks "github.com/ZihuaZhang/fabric/msp/mocks"
 	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
+	mb "github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
 )

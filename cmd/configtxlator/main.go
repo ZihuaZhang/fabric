@@ -16,7 +16,6 @@ import (
 
 	"github.com/ZihuaZhang/fabric-config/protolator"
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
-	_ "github.com/ZihuaZhang/fabric-protos-go/msp"
 	_ "github.com/ZihuaZhang/fabric-protos-go/orderer"
 	_ "github.com/ZihuaZhang/fabric-protos-go/orderer/etcdraft"
 	_ "github.com/ZihuaZhang/fabric-protos-go/peer"
@@ -26,6 +25,7 @@ import (
 	"github.com/ZihuaZhang/fabric/internal/configtxlator/update"
 	"github.com/golang/protobuf/proto"
 	"github.com/gorilla/handlers"
+	_ "github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/pkg/errors"
 	"google.golang.org/protobuf/reflect/protoreflect"
 	"google.golang.org/protobuf/reflect/protoregistry"

@@ -9,10 +9,10 @@ package policy
 import (
 	"testing"
 
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric/bccsp/sw"
 	"github.com/ZihuaZhang/fabric/msp/mgmt"
 	"github.com/golang/protobuf/proto"
+	"github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/stretchr/testify/require"
 )
 

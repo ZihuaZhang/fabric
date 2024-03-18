@@ -9,9 +9,9 @@ package smartbft
 import (
 	"fmt"
 
-	mspa "github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric/common/policies"
 	"github.com/ZihuaZhang/fabric/common/policydsl"
+	mspa "github.com/hyperledger/fabric-protos-go/msp"
 
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
 	"github.com/ZihuaZhang/fabric/common/channelconfig"

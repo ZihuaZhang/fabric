@@ -12,7 +12,6 @@ import (
 	"testing"
 
 	"github.com/ZihuaZhang/fabric-protos-go/common"
-	mspprotos "github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric-protos-go/peer"
 	"github.com/ZihuaZhang/fabric/bccsp/sw"
 	"github.com/ZihuaZhang/fabric/common/policydsl"
@@ -21,6 +20,7 @@ import (
 	msptesttools "github.com/ZihuaZhang/fabric/msp/mgmt/testtools"
 	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
+	mspprotos "github.com/hyperledger/fabric-protos-go/msp"
 )
 
 func ownerCreateCCDepSpec(codepackage []byte, sigpolicy *common.SignaturePolicyEnvelope, owner msp.SigningIdentity) (*common.Envelope, error) {

@@ -12,7 +12,6 @@ import (
 	"time"
 
 	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset"
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric-protos-go/peer"
 	vsccErrors "github.com/ZihuaZhang/fabric/common/errors"
 	"github.com/ZihuaZhang/fabric/common/metrics"
@@ -24,6 +23,7 @@ import (
 	"github.com/ZihuaZhang/fabric/gossip/util"
 	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
+	"github.com/hyperledger/fabric-protos-go/msp"
 )
 
 type sleeper struct {

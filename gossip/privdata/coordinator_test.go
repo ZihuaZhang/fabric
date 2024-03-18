@@ -19,7 +19,6 @@ import (
 	proto "github.com/ZihuaZhang/fabric-protos-go/gossip"
 	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset"
 	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset/kvrwset"
-	mspproto "github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric-protos-go/peer"
 	tspb "github.com/ZihuaZhang/fabric-protos-go/transientstore"
 	"github.com/ZihuaZhang/fabric/bccsp/factory"
@@ -39,6 +38,7 @@ import (
 	msptesttools "github.com/ZihuaZhang/fabric/msp/mgmt/testtools"
 	"github.com/ZihuaZhang/fabric/protoutil"
 	pb "github.com/golang/protobuf/proto"
+	mspproto "github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 )

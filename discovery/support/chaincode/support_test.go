@@ -10,11 +10,11 @@ import (
 	"testing"
 
 	"github.com/ZihuaZhang/fabric-protos-go/common"
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric/common/chaincode"
 	"github.com/ZihuaZhang/fabric/common/policies"
 	"github.com/ZihuaZhang/fabric/common/policies/inquire"
 	"github.com/ZihuaZhang/fabric/protoutil"
+	"github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/stretchr/testify/require"
 )
 

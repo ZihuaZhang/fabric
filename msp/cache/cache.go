@@ -7,9 +7,9 @@ SPDX-License-Identifier: Apache-2.0
 package cache
 
 import (
-	pmsp "github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric/common/flogging"
 	"github.com/ZihuaZhang/fabric/msp"
+	pmsp "github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/pkg/errors"
 )
 

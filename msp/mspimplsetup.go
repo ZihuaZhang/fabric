@@ -14,10 +14,10 @@ import (
 	"fmt"
 	"time"
 
-	m "github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric/bccsp"
 	"github.com/ZihuaZhang/fabric/bccsp/utils"
 	"github.com/golang/protobuf/proto"
+	m "github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/pkg/errors"
 )
 

@@ -9,7 +9,6 @@ package tests
 import (
 	"github.com/ZihuaZhang/fabric-protos-go/common"
 	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset"
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	protopeer "github.com/ZihuaZhang/fabric-protos-go/peer"
 	configtxtest "github.com/ZihuaZhang/fabric/common/configtx/test"
 	"github.com/ZihuaZhang/fabric/common/crypto"
@@ -19,6 +18,7 @@ import (
 	"github.com/ZihuaZhang/fabric/internal/pkg/txflags"
 	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
+	"github.com/hyperledger/fabric-protos-go/msp"
 )
 
 var logger = flogging.MustGetLogger("test2")

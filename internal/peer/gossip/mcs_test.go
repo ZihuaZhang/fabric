@@ -15,7 +15,6 @@ import (
 	"time"
 
 	"github.com/ZihuaZhang/fabric-protos-go/common"
-	pmsp "github.com/ZihuaZhang/fabric-protos-go/msp"
 	protospeer "github.com/ZihuaZhang/fabric-protos-go/peer"
 	"github.com/ZihuaZhang/fabric/bccsp/sw"
 	"github.com/ZihuaZhang/fabric/common/channelconfig"
@@ -28,6 +27,7 @@ import (
 	"github.com/ZihuaZhang/fabric/msp/mgmt"
 	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
+	pmsp "github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"

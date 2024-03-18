@@ -14,7 +14,6 @@ import (
 	"time"
 
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	ab "github.com/ZihuaZhang/fabric-protos-go/orderer"
 	"github.com/ZihuaZhang/fabric/common/crypto/tlsgen"
 	"github.com/ZihuaZhang/fabric/common/deliver"
@@ -26,6 +25,7 @@ import (
 	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes/timestamp"
+	"github.com/hyperledger/fabric-protos-go/msp"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"github.com/pkg/errors"

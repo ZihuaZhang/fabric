@@ -9,7 +9,6 @@ package bbs12381g2pub
 import (
 	"fmt"
 
-	math "github.com/IBM/mathlib"
 	ml "github.com/IBM/mathlib"
 )
 
@@ -26,40 +25,18 @@ type PoKOfSignature struct {
 	secrets2 []*ml.Zr
 
 	revealedMessages map[int]*SignatureMessage
-
-	curve *math.Curve
 }
 
 // NewPoKOfSignature creates a new PoKOfSignature.
-func (bl *bbsLib) NewPoKOfSignature(
-	signature *Signature,
-	messages []*SignatureMessage,
-	revealedIndexes []int,
-	pubKey *PublicKeyWithGenerators,
-) (*PoKOfSignature, error) {
-	return bl.NewPoKOfSignatureExt(signature, messages, revealedIndexes, pubKey, nil, nil, nil)
-}
-
-// NewPoKOfSignatureExt creates a new PoKOfSignature.
-func (bl *bbsLib) NewPoKOfSignatureExt(
-	signature *Signature,
-	messages []*SignatureMessage,
-	revealedIndexes []int,
-	pubKey *PublicKeyWithGenerators,
-	B *ml.G1, // this is assumed to be H0^r H[0]^sk
-	r *ml.Zr,
-	C *ml.G1, // this is assumed to be H[0]^sk
-) (*PoKOfSignature, error) {
-	// err := signature.Verify(messages, pubKey)
-	// if err != nil {
-	// 	return nil, fmt.Errorf("verify input signature: %w", err)
-	// }
-
-	r1, r2 := bl.createRandSignatureFr(), bl.createRandSignatureFr()
-	b := computeB(signature.S, messages, pubKey, bl.curve)
-	if B != nil {
-		b.Add(C)
+func NewPoKOfSignature(signature *Signature, messages []*SignatureMessage, revealedIndexes []int,
+	pubKey *PublicKeyWithGenerators) (*PoKOfSignature, error) {
+	err := signature.Verify(messages, pubKey)
+	if err != nil {
+		return nil, fmt.Errorf("verify input signature: %w", err)
 	}
+
+	r1, r2 := createRandSignatureFr(), createRandSignatureFr()
+	b := computeB(signature.S, messages, pubKey)
 	aPrime := signature.A.Mul(frToRepr(r1))
 
 	aBarDenom := aPrime.Mul(frToRepr(signature.E))
@@ -77,13 +54,13 @@ func (bl *bbsLib) NewPoKOfSignatureExt(
 
 	d := cb.Build()
 	r3 := r1.Copy()
-	r3.InvModP(bl.curve.GroupOrder)
+	r3.InvModP(curve.GroupOrder)
 
 	sPrime := r2.Mul(r3)
 	sPrime.Neg()
 	sPrime = sPrime.Plus(signature.S)
 
-	pokVC1, secrets1 := bl.newVC1Signature(aPrime, pubKey.H0, signature.E, r2)
+	pokVC1, secrets1 := newVC1Signature(aPrime, pubKey.H0, signature.E, r2)
 
 	revealedMessages := make(map[int]*SignatureMessage, len(revealedIndexes))
 
@@ -93,15 +70,10 @@ func (bl *bbsLib) NewPoKOfSignatureExt(
 	}
 
 	for _, ind := range revealedIndexes {
-		revealedMessages[messages[ind].Idx] = messages[ind]
+		revealedMessages[ind] = messages[ind]
 	}
 
-	if B != nil {
-		sPrime = sPrime.Minus(r)
-		// messages = messages[1:]
-	}
-
-	pokVC2, secrets2 := bl.newVC2Signature(d, r3, pubKey, sPrime, messages, revealedMessages)
+	pokVC2, secrets2 := newVC2Signature(d, r3, pubKey, sPrime, messages, revealedMessages)
 
 	return &PoKOfSignature{
 		aPrime:           aPrime,
@@ -112,13 +84,12 @@ func (bl *bbsLib) NewPoKOfSignatureExt(
 		PokVC2:           pokVC2,
 		secrets2:         secrets2,
 		revealedMessages: revealedMessages,
-		curve:            bl.curve,
 	}, nil
 }
 
-func (b *bbsLib) newVC1Signature(aPrime *ml.G1, h0 *ml.G1,
+func newVC1Signature(aPrime *ml.G1, h0 *ml.G1,
 	e, r2 *ml.Zr) (*ProverCommittedG1, []*ml.Zr) {
-	committing1 := b.NewProverCommittingG1()
+	committing1 := NewProverCommittingG1()
 	secrets1 := make([]*ml.Zr, 2)
 
 	committing1.Commit(aPrime)
@@ -135,10 +106,10 @@ func (b *bbsLib) newVC1Signature(aPrime *ml.G1, h0 *ml.G1,
 	return pokVC1, secrets1
 }
 
-func (b *bbsLib) newVC2Signature(d *ml.G1, r3 *ml.Zr, pubKey *PublicKeyWithGenerators, sPrime *ml.Zr,
+func newVC2Signature(d *ml.G1, r3 *ml.Zr, pubKey *PublicKeyWithGenerators, sPrime *ml.Zr,
 	messages []*SignatureMessage, revealedMessages map[int]*SignatureMessage) (*ProverCommittedG1, []*ml.Zr) {
 	messagesCount := len(messages)
-	committing2 := b.NewProverCommittingG1()
+	committing2 := NewProverCommittingG1()
 	baseSecretsCount := 2
 	secrets2 := make([]*ml.Zr, 0, baseSecretsCount+messagesCount)
 
@@ -153,14 +124,14 @@ func (b *bbsLib) newVC2Signature(d *ml.G1, r3 *ml.Zr, pubKey *PublicKeyWithGener
 
 	secrets2 = append(secrets2, sPrime)
 
-	for _, msg := range messages {
-		if _, ok := revealedMessages[msg.Idx]; ok {
+	for i := 0; i < messagesCount; i++ {
+		if _, ok := revealedMessages[i]; ok {
 			continue
 		}
 
-		committing2.Commit(pubKey.H[msg.Idx])
+		committing2.Commit(pubKey.H[i])
 
-		sourceFR := msg.FR
+		sourceFR := messages[i].FR
 		hiddenFRCopy := sourceFR.Copy()
 
 		secrets2 = append(secrets2, hiddenFRCopy)
@@ -188,7 +159,6 @@ func (pos *PoKOfSignature) GenerateProof(challengeHash *ml.Zr) *PoKOfSignaturePr
 		d:        pos.d,
 		proofVC1: pos.pokVC1.GenerateProof(challengeHash, pos.secrets1),
 		ProofVC2: pos.PokVC2.GenerateProof(challengeHash, pos.secrets2),
-		curve:    pos.curve,
 	}
 }
 
@@ -231,22 +201,20 @@ func (g *ProverCommittedG1) GenerateProof(challenge *ml.Zr, secrets []*ml.Zr) *P
 type ProverCommittingG1 struct {
 	bases           []*ml.G1
 	BlindingFactors []*ml.Zr
-	b               *bbsLib
 }
 
 // NewProverCommittingG1 creates a new ProverCommittingG1.
-func (bl *bbsLib) NewProverCommittingG1() *ProverCommittingG1 {
+func NewProverCommittingG1() *ProverCommittingG1 {
 	return &ProverCommittingG1{
 		bases:           make([]*ml.G1, 0),
 		BlindingFactors: make([]*ml.Zr, 0),
-		b:               bl,
 	}
 }
 
 // Commit append a base point and randomly generated blinding factor.
 func (pc *ProverCommittingG1) Commit(base *ml.G1) {
 	pc.bases = append(pc.bases, base)
-	r := pc.b.createRandSignatureFr()
+	r := createRandSignatureFr()
 	pc.BlindingFactors = append(pc.BlindingFactors, r)
 }
 

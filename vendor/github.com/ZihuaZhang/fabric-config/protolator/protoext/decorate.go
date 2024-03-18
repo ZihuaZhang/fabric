@@ -14,10 +14,10 @@ import (
 	"github.com/ZihuaZhang/fabric-config/protolator/protoext/peerext"
 	"github.com/ZihuaZhang/fabric-protos-go/common"
 	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset"
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric-protos-go/orderer"
 	"github.com/ZihuaZhang/fabric-protos-go/peer"
 	"github.com/golang/protobuf/proto"
+	"github.com/hyperledger/fabric-protos-go/msp"
 )
 
 // Docorate will add additional capabilities to some protobuf messages that

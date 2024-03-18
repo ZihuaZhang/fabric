@@ -12,11 +12,11 @@ import (
 	"github.com/ZihuaZhang/fabric-protos-go/orderer/smartbft"
 
 	"github.com/ZihuaZhang/fabric-protos-go/common"
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric-protos-go/orderer"
 	"github.com/ZihuaZhang/fabric-protos-go/orderer/etcdraft"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes/empty"
+	"github.com/hyperledger/fabric-protos-go/msp"
 )
 
 type DynamicOrdererGroup struct {

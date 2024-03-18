@@ -12,10 +12,10 @@ import (
 	"testing"
 
 	. "github.com/ZihuaZhang/fabric-protos-go/discovery"
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric/cmd/common"
 	discovery "github.com/ZihuaZhang/fabric/discovery/cmd"
 	"github.com/ZihuaZhang/fabric/discovery/cmd/mocks"
+	"github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"

@@ -12,7 +12,6 @@ import (
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
 	"github.com/ZihuaZhang/fabric-protos-go/ledger/queryresult"
 	"github.com/ZihuaZhang/fabric-protos-go/ledger/rwset/kvrwset"
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
 	lb "github.com/ZihuaZhang/fabric-protos-go/peer/lifecycle"
 	"github.com/ZihuaZhang/fabric/common/channelconfig"
@@ -24,6 +23,7 @@ import (
 	"github.com/ZihuaZhang/fabric/core/peer"
 	"github.com/ZihuaZhang/fabric/gossip/privdata"
 	"github.com/ZihuaZhang/fabric/protoutil"
+	"github.com/hyperledger/fabric-protos-go/msp"
 
 	"github.com/golang/protobuf/proto"
 

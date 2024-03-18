@@ -12,7 +12,6 @@ import (
 	"github.com/ZihuaZhang/fabric-protos-go/peer"
 
 	"github.com/ZihuaZhang/fabric-protos-go/discovery"
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric/common/chaincode"
 	"github.com/ZihuaZhang/fabric/common/flogging"
 	"github.com/ZihuaZhang/fabric/common/graph"
@@ -21,6 +20,7 @@ import (
 	"github.com/ZihuaZhang/fabric/gossip/api"
 	"github.com/ZihuaZhang/fabric/gossip/common"
 	gossipdiscovery "github.com/ZihuaZhang/fabric/gossip/discovery"
+	"github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/pkg/errors"
 )
 

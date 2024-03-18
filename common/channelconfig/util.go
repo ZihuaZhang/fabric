@@ -12,7 +12,6 @@ import (
 	"os"
 
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
-	mspprotos "github.com/ZihuaZhang/fabric-protos-go/msp"
 	ab "github.com/ZihuaZhang/fabric-protos-go/orderer"
 	"github.com/ZihuaZhang/fabric-protos-go/orderer/etcdraft"
 	"github.com/ZihuaZhang/fabric-protos-go/orderer/smartbft"
@@ -20,6 +19,7 @@ import (
 	"github.com/ZihuaZhang/fabric/bccsp"
 	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
+	mspprotos "github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/pkg/errors"
 )
 

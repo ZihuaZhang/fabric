@@ -11,8 +11,8 @@ import (
 	"fmt"
 
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
-	mb "github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/golang/protobuf/proto"
+	mb "github.com/hyperledger/fabric-protos-go/msp"
 )
 
 // Consortium is a group of non-orderer organizations used in channel transactions.

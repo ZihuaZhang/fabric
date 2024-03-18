@@ -17,9 +17,9 @@ limitations under the License.
 package policy
 
 import (
-	protomsp "github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric/msp"
 	"github.com/golang/protobuf/proto"
+	protomsp "github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/pkg/errors"
 )
 

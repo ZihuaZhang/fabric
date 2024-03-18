@@ -7,7 +7,6 @@ SPDX-License-Identifier: Apache-2.0
 package bbs12381g2pub
 
 import (
-	math "github.com/IBM/mathlib"
 	ml "github.com/IBM/mathlib"
 )
 
@@ -18,8 +17,8 @@ type SignatureMessage struct {
 }
 
 // ParseSignatureMessage parses SignatureMessage from bytes.
-func ParseSignatureMessage(message []byte, idx int, curve *math.Curve) *SignatureMessage {
-	elm := FrFromOKM(message, curve)
+func ParseSignatureMessage(message []byte, idx int) *SignatureMessage {
+	elm := FrFromOKM(message)
 
 	return &SignatureMessage{
 		FR:  elm,

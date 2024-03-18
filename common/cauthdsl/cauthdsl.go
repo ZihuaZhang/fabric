@@ -11,9 +11,9 @@ import (
 	"time"
 
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
-	mb "github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric/common/flogging"
 	"github.com/ZihuaZhang/fabric/msp"
+	mb "github.com/hyperledger/fabric-protos-go/msp"
 	"go.uber.org/zap/zapcore"
 )
 

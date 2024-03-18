@@ -8,13 +8,25 @@ code.cloudfoundry.org/clock/fakeclock
 ## explicit; go 1.16
 github.com/Azure/go-ansiterm
 github.com/Azure/go-ansiterm/winterm
-# github.com/IBM/idemix/bccsp/schemes/aries v0.0.0-20231108072133-d352a06c88b7
+# github.com/IBM/idemix v0.0.2-0.20231011101252-a4feda90f3f7
+## explicit; go 1.19
+github.com/IBM/idemix
+github.com/IBM/idemix/bccsp
+github.com/IBM/idemix/bccsp/handlers
+github.com/IBM/idemix/bccsp/keystore
+github.com/IBM/idemix/bccsp/schemes/dlog/bridge
+github.com/IBM/idemix/bccsp/schemes/dlog/crypto
+github.com/IBM/idemix/bccsp/schemes/dlog/crypto/translator/amcl
+github.com/IBM/idemix/common/flogging
+github.com/IBM/idemix/common/flogging/fabenc
+github.com/IBM/idemix/idemixmsp
+# github.com/IBM/idemix/bccsp/schemes/aries v0.0.0-20231003085036-c4470b87b2d6
 ## explicit; go 1.19
 github.com/IBM/idemix/bccsp/schemes/aries
-# github.com/IBM/idemix/bccsp/schemes/weak-bb v0.0.0-20231108072133-d352a06c88b7
+# github.com/IBM/idemix/bccsp/schemes/weak-bb v0.0.0-20240125153755-b3fcea5c7863
 ## explicit; go 1.19
 github.com/IBM/idemix/bccsp/schemes/weak-bb
-# github.com/IBM/idemix/bccsp/types v0.0.0-20231108072133-d352a06c88b7
+# github.com/IBM/idemix/bccsp/types v0.0.0-20240125153755-b3fcea5c7863
 ## explicit; go 1.19
 github.com/IBM/idemix/bccsp/types
 # github.com/IBM/mathlib v0.0.3-0.20231011094432-44ee0eb539da
@@ -48,13 +60,13 @@ github.com/SmartBFT-Go/consensus/smartbftprotos
 # github.com/VictoriaMetrics/fastcache v1.9.0
 ## explicit; go 1.13
 github.com/VictoriaMetrics/fastcache
-# github.com/ZihuaZhang/fabric-chaincode-go v1.0.1
+# github.com/ZihuaZhang/fabric-chaincode-go v1.0.2
 ## explicit; go 1.20
 github.com/ZihuaZhang/fabric-chaincode-go/pkg/statebased
 github.com/ZihuaZhang/fabric-chaincode-go/shim
 github.com/ZihuaZhang/fabric-chaincode-go/shim/internal
 github.com/ZihuaZhang/fabric-chaincode-go/shimtest
-# github.com/ZihuaZhang/fabric-config v1.0.0
+# github.com/ZihuaZhang/fabric-config v1.0.1
 ## explicit; go 1.20
 github.com/ZihuaZhang/fabric-config/configtx
 github.com/ZihuaZhang/fabric-config/configtx/internal/policydsl
@@ -67,7 +79,7 @@ github.com/ZihuaZhang/fabric-config/protolator/protoext/ledger/rwsetext
 github.com/ZihuaZhang/fabric-config/protolator/protoext/mspext
 github.com/ZihuaZhang/fabric-config/protolator/protoext/ordererext
 github.com/ZihuaZhang/fabric-config/protolator/protoext/peerext
-# github.com/ZihuaZhang/fabric-protos-go v1.0.4
+# github.com/ZihuaZhang/fabric-protos-go v1.0.5
 ## explicit; go 1.17
 github.com/ZihuaZhang/fabric-protos-go/common
 github.com/ZihuaZhang/fabric-protos-go/discovery
@@ -76,26 +88,13 @@ github.com/ZihuaZhang/fabric-protos-go/gossip
 github.com/ZihuaZhang/fabric-protos-go/ledger/queryresult
 github.com/ZihuaZhang/fabric-protos-go/ledger/rwset
 github.com/ZihuaZhang/fabric-protos-go/ledger/rwset/kvrwset
-github.com/ZihuaZhang/fabric-protos-go/msp
 github.com/ZihuaZhang/fabric-protos-go/orderer
 github.com/ZihuaZhang/fabric-protos-go/orderer/etcdraft
 github.com/ZihuaZhang/fabric-protos-go/orderer/smartbft
 github.com/ZihuaZhang/fabric-protos-go/peer
 github.com/ZihuaZhang/fabric-protos-go/peer/lifecycle
 github.com/ZihuaZhang/fabric-protos-go/transientstore
-# github.com/ZihuaZhang/idemix v1.0.1
-## explicit; go 1.19
-github.com/ZihuaZhang/idemix
-github.com/ZihuaZhang/idemix/bccsp
-github.com/ZihuaZhang/idemix/bccsp/handlers
-github.com/ZihuaZhang/idemix/bccsp/keystore
-github.com/ZihuaZhang/idemix/bccsp/schemes/dlog/bridge
-github.com/ZihuaZhang/idemix/bccsp/schemes/dlog/crypto
-github.com/ZihuaZhang/idemix/bccsp/schemes/dlog/crypto/translator/amcl
-github.com/ZihuaZhang/idemix/common/flogging
-github.com/ZihuaZhang/idemix/common/flogging/fabenc
-github.com/ZihuaZhang/idemix/idemixmsp
-# github.com/ale-linux/aries-framework-go/component/kmscrypto v0.0.0-20231023164747-f3f972769504
+# github.com/ale-linux/aries-framework-go/component/kmscrypto v0.0.0-20230817163708-4b3de6d91874
 ## explicit; go 1.19
 github.com/ale-linux/aries-framework-go/component/kmscrypto/crypto/primitive/bbs12381g2pub
 # github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
@@ -255,6 +254,9 @@ github.com/hyperledger/fabric-amcl/core/FP256BN
 # github.com/hyperledger/fabric-lib-go v1.0.0
 ## explicit
 github.com/hyperledger/fabric-lib-go/healthz
+# github.com/hyperledger/fabric-protos-go v0.3.3
+## explicit; go 1.17
+github.com/hyperledger/fabric-protos-go/msp
 # github.com/inconshreveable/mousetrap v1.0.0
 ## explicit
 github.com/inconshreveable/mousetrap

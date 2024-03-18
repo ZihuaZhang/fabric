@@ -15,7 +15,6 @@ import (
 
 	discoveryprotos "github.com/ZihuaZhang/fabric-protos-go/discovery"
 	"github.com/ZihuaZhang/fabric-protos-go/gossip"
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric-protos-go/peer"
 	"github.com/ZihuaZhang/fabric/common/chaincode"
 	"github.com/ZihuaZhang/fabric/common/policies"
@@ -25,6 +24,7 @@ import (
 	"github.com/ZihuaZhang/fabric/gossip/discovery"
 	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
+	"github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"

@@ -7,9 +7,9 @@ require (
 	github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible
 	github.com/SmartBFT-Go/consensus v0.0.0-20230907130931-31f018a899a6
 	github.com/VictoriaMetrics/fastcache v1.9.0
-	github.com/ZihuaZhang/fabric-chaincode-go v1.0.1
-	github.com/ZihuaZhang/fabric-config v1.0.0
-	github.com/ZihuaZhang/fabric-protos-go v1.0.4
+	github.com/ZihuaZhang/fabric-chaincode-go v1.0.2
+	github.com/ZihuaZhang/fabric-config v1.0.1
+	github.com/ZihuaZhang/fabric-protos-go v1.0.5
 	github.com/bits-and-blooms/bitset v1.7.0
 	github.com/cheggaaa/pb v1.0.29
 	github.com/davecgh/go-spew v1.1.1
@@ -20,6 +20,7 @@ require (
 	github.com/gorilla/mux v1.8.0
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
 	github.com/hyperledger/fabric-lib-go v1.0.0
+	github.com/hyperledger/fabric-protos-go v0.3.3
 	github.com/kr/pretty v0.3.1
 	github.com/miekg/pkcs11 v1.1.1
 	github.com/mitchellh/mapstructure v1.4.3
@@ -46,7 +47,7 @@ require (
 )
 
 require (
-	github.com/ZihuaZhang/idemix v1.0.1
+	github.com/IBM/idemix v0.0.2-0.20231011101252-a4feda90f3f7
 	github.com/fentec-project/bn256 v0.0.0-20190726093940-0d0fc8bfeed0
 	github.com/fentec-project/gofe v0.0.0-20220829150550-ccc7482d20ef
 	google.golang.org/protobuf v1.33.0
@@ -55,12 +56,12 @@ require (
 require (
 	github.com/AdaLogics/go-fuzz-headers v0.0.0-20230811130428-ced1acdcaa24 // indirect
 	github.com/Azure/go-ansiterm v0.0.0-20210617225240-d185dfc1b5a1 // indirect
-	github.com/IBM/idemix/bccsp/schemes/aries v0.0.0-20231108072133-d352a06c88b7 // indirect
-	github.com/IBM/idemix/bccsp/schemes/weak-bb v0.0.0-20231108072133-d352a06c88b7 // indirect
-	github.com/IBM/idemix/bccsp/types v0.0.0-20231108072133-d352a06c88b7 // indirect
+	github.com/IBM/idemix/bccsp/schemes/aries v0.0.0-20231003085036-c4470b87b2d6 // indirect
+	github.com/IBM/idemix/bccsp/schemes/weak-bb v0.0.0-20240125153755-b3fcea5c7863 // indirect
+	github.com/IBM/idemix/bccsp/types v0.0.0-20240125153755-b3fcea5c7863 // indirect
 	github.com/IBM/mathlib v0.0.3-0.20231011094432-44ee0eb539da // indirect
 	github.com/Microsoft/go-winio v0.6.1 // indirect
-	github.com/ale-linux/aries-framework-go/component/kmscrypto v0.0.0-20231023164747-f3f972769504 // indirect
+	github.com/ale-linux/aries-framework-go/component/kmscrypto v0.0.0-20230817163708-4b3de6d91874 // indirect
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751 // indirect
 	github.com/alecthomas/units v0.0.0-20210912230133-d1bdfacee922 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect

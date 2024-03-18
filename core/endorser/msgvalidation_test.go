@@ -13,11 +13,11 @@ import (
 	. "github.com/onsi/gomega"
 
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
-	mspproto "github.com/ZihuaZhang/fabric-protos-go/msp"
 	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
 	"github.com/ZihuaZhang/fabric/core/endorser"
 	"github.com/ZihuaZhang/fabric/core/endorser/fake"
 	"github.com/ZihuaZhang/fabric/protoutil"
+	mspproto "github.com/hyperledger/fabric-protos-go/msp"
 
 	"github.com/golang/protobuf/proto"
 )

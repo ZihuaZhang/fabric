@@ -20,7 +20,6 @@ import (
 	"time"
 
 	"github.com/ZihuaZhang/fabric-protos-go/common"
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	protosorderer "github.com/ZihuaZhang/fabric-protos-go/orderer"
 	"github.com/ZihuaZhang/fabric-protos-go/orderer/etcdraft"
 	"github.com/ZihuaZhang/fabric/common/crypto/tlsgen"
@@ -31,6 +30,7 @@ import (
 	"github.com/ZihuaZhang/fabric/protoutil"
 	docker "github.com/fsouza/go-dockerclient"
 	"github.com/golang/protobuf/proto"
+	"github.com/hyperledger/fabric-protos-go/msp"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"github.com/onsi/gomega/gbytes"

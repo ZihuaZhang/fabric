@@ -4,7 +4,7 @@ package mock
 import (
 	"sync"
 
-	mspa "github.com/ZihuaZhang/fabric-protos-go/msp"
+	mspa "github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric/msp"
 )
 

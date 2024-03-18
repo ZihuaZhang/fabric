@@ -14,7 +14,6 @@ import (
 
 	"github.com/ZihuaZhang/fabric-config/protolator"
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
-	mspprotos "github.com/ZihuaZhang/fabric-protos-go/msp"
 	ab "github.com/ZihuaZhang/fabric-protos-go/orderer"
 	"github.com/ZihuaZhang/fabric-protos-go/orderer/etcdraft"
 	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
@@ -22,6 +21,7 @@ import (
 	"github.com/ZihuaZhang/fabric/common/capabilities"
 	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
+	mspprotos "github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/stretchr/testify/require"
 )
 

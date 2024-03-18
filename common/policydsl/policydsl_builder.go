@@ -10,8 +10,8 @@ import (
 	"sort"
 
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
-	mb "github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/golang/protobuf/proto"
+	mb "github.com/hyperledger/fabric-protos-go/msp"
 )
 
 // AcceptAllPolicy always evaluates to true

@@ -16,7 +16,6 @@ import (
 	"time"
 
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
-	mspproto "github.com/ZihuaZhang/fabric-protos-go/msp"
 	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
 	configtxtest "github.com/ZihuaZhang/fabric/common/configtx/test"
 	"github.com/ZihuaZhang/fabric/common/crypto/tlsgen"
@@ -27,6 +26,7 @@ import (
 	"github.com/ZihuaZhang/fabric/internal/pkg/txflags"
 	"github.com/ZihuaZhang/fabric/msp"
 	"github.com/ZihuaZhang/fabric/protoutil"
+	mspproto "github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/stretchr/testify/require"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"

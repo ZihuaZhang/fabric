@@ -10,12 +10,12 @@ import (
 	"testing"
 
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
-	mb "github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric/common/cauthdsl"
 	"github.com/ZihuaZhang/fabric/common/policies"
 	"github.com/ZihuaZhang/fabric/common/policydsl"
 	"github.com/ZihuaZhang/fabric/msp"
 	"github.com/ZihuaZhang/fabric/protoutil"
+	mb "github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
 )

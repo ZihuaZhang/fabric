@@ -11,7 +11,6 @@ import (
 	"time"
 
 	"github.com/ZihuaZhang/fabric-protos-go/common"
-	mspprotos "github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric-protos-go/peer"
 	"github.com/ZihuaZhang/fabric/bccsp"
 	"github.com/ZihuaZhang/fabric/common/channelconfig"
@@ -27,6 +26,7 @@ import (
 	"github.com/ZihuaZhang/fabric/msp"
 	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
+	mspprotos "github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/pkg/errors"
 )
 

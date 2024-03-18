@@ -10,10 +10,10 @@ import (
 	"crypto/x509"
 	"testing"
 
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric/bccsp"
 	"github.com/ZihuaZhang/fabric/bccsp/sw"
 	"github.com/ZihuaZhang/fabric/common/crypto/tlsgen"
+	"github.com/hyperledger/fabric-protos-go/msp"
 
 	"github.com/onsi/gomega"
 )

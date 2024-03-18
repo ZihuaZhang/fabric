@@ -9,8 +9,8 @@ package mocks
 import (
 	"time"
 
-	mspprotos "github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric/msp"
+	mspprotos "github.com/hyperledger/fabric-protos-go/msp"
 )
 
 type noopmsp struct{}

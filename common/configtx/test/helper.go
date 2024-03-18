@@ -8,7 +8,6 @@ package test
 
 import (
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
-	mspproto "github.com/ZihuaZhang/fabric-protos-go/msp"
 	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
 	"github.com/ZihuaZhang/fabric/common/channelconfig"
 	"github.com/ZihuaZhang/fabric/common/flogging"
@@ -18,6 +17,7 @@ import (
 	"github.com/ZihuaZhang/fabric/internal/configtxgen/genesisconfig"
 	"github.com/ZihuaZhang/fabric/internal/pkg/txflags"
 	"github.com/ZihuaZhang/fabric/protoutil"
+	mspproto "github.com/hyperledger/fabric-protos-go/msp"
 )
 
 var logger = flogging.MustGetLogger("common.configtx.test")

@@ -26,7 +26,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/ZihuaZhang/fabric/bccsp"
 	"github.com/ZihuaZhang/fabric/bccsp/factory"
 	"github.com/ZihuaZhang/fabric/bccsp/sw"
@@ -34,6 +33,7 @@ import (
 	"github.com/ZihuaZhang/fabric/core/config/configtest"
 	"github.com/ZihuaZhang/fabric/protoutil"
 	"github.com/golang/protobuf/proto"
+	"github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/stretchr/testify/require"
 )
 

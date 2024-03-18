@@ -8,13 +8,13 @@ package lifecycle_test
 
 import (
 	"github.com/ZihuaZhang/fabric-protos-go/common"
-	"github.com/ZihuaZhang/fabric-protos-go/msp"
 	pb "github.com/ZihuaZhang/fabric-protos-go/peer"
 	lb "github.com/ZihuaZhang/fabric-protos-go/peer/lifecycle"
 	"github.com/ZihuaZhang/fabric/common/chaincode"
 	"github.com/ZihuaZhang/fabric/common/policydsl"
 	"github.com/ZihuaZhang/fabric/core/chaincode/lifecycle"
 	"github.com/ZihuaZhang/fabric/core/chaincode/lifecycle/mock"
+	"github.com/hyperledger/fabric-protos-go/msp"
 	"github.com/pkg/errors"
 
 	"github.com/ZihuaZhang/fabric/protoutil"

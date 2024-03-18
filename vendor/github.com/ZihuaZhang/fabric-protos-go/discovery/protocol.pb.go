@@ -8,7 +8,7 @@ import (
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
 	gossip "github.com/ZihuaZhang/fabric-protos-go/gossip"
-	msp "github.com/ZihuaZhang/fabric-protos-go/msp"
+	msp "github.com/hyperledger/fabric-protos-go/msp"
 	peer "github.com/ZihuaZhang/fabric-protos-go/peer"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"

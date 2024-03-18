@@ -25,10 +25,10 @@ import (
 	"strings"
 
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
-	mb "github.com/ZihuaZhang/fabric-protos-go/msp"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/timestamp"
+	mb "github.com/hyperledger/fabric-protos-go/msp"
 )
 
 // Channel is a channel configuration.
