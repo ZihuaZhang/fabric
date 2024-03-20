@@ -507,7 +507,7 @@ func ChaincodeInvokeOrQuery(
 			return nil, errors.Wrap(err, "error parsing transient string")
 		}
 	}
-
+	logger.Info("zhengzaizhixingchaincodeinvokeorquery")
 	prop, txid, err := protoutil.CreateChaincodeProposalWithTxIDAndTransient(pcommon.HeaderType_ENDORSER_TRANSACTION, cID, invocation, creator, txID, tMap)
 	if err != nil {
 		return nil, errors.WithMessagef(err, "error creating proposal for %s", funcName)
@@ -537,6 +537,7 @@ func ChaincodeInvokeOrQuery(
 				return proposalResp, nil
 			}
 			// assemble a signed transaction (it's an Envelope message)
+			logger.Info("zhengzaizhicingcreatesignedtx")
 			env, err := protoutil.CreateSignedTx(spec, prop, signer, responses...)
 			if err != nil {
 				return proposalResp, errors.WithMessage(err, "could not assemble transaction")
