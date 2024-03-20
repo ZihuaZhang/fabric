@@ -9,6 +9,7 @@ package etcdraft
 import (
 	"crypto/sha256"
 	"encoding/json"
+	"fmt"
 
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
 	"github.com/ZihuaZhang/fabric/common/flogging"
@@ -78,6 +79,7 @@ func (bc *blockCreator) createNextBlock(envs []*cb.Envelope) *cb.Block {
 	//}
 
 	bc.number++
+	fmt.Println(dataHash)
 
 	block := protoutil.NewBlock(bc.number, bc.hash)
 	// block.Header.DataHash = protoutil.ComputeBlockDataHash(data)
