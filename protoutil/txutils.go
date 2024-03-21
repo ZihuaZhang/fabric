@@ -265,7 +265,8 @@ func CreateSignedTx(
 		// 处理错误
 		fmt.Println(err)
 	}
-	fmt.Println(spec)
+	fmt.Println(redactMsg)
+	fmt.Println(redactJSON)
 	// here's the envelope
 	return &common.Envelope{Payload: paylBytes, Signature: sig, Redactable: isRedactale, RedactMessage: redactJSON}, nil
 }

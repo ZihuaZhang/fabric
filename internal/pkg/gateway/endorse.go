@@ -110,7 +110,7 @@ func (gs *Server) Endorse(ctx context.Context, request *gp.EndorseRequest) (*gp.
 
 	action = &peer.ChaincodeEndorsedAction{ProposalResponsePayload: plan.responsePayload, Endorsements: uniqueEndorsements(plan.completedLayout.endorsements)}
 
-	preparedTransaction, err := prepareTransaction(header, payload, action)
+	preparedTransaction, err := prepareTransaction(header, payload, action, spec.ChaincodeSpec)
 	if err != nil {
 		return nil, status.Errorf(codes.Aborted, "failed to assemble transaction: %s", err)
 	}

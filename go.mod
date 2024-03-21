@@ -7,9 +7,9 @@ require (
 	github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible
 	github.com/SmartBFT-Go/consensus v0.0.0-20230907130931-31f018a899a6
 	github.com/VictoriaMetrics/fastcache v1.9.0
-	github.com/ZihuaZhang/fabric-chaincode-go v1.0.2
-	github.com/ZihuaZhang/fabric-config v1.0.1
-	github.com/ZihuaZhang/fabric-protos-go v1.0.5
+	github.com/ZihuaZhang/fabric-chaincode-go v1.0.3
+	github.com/ZihuaZhang/fabric-config v1.0.2
+	github.com/ZihuaZhang/fabric-protos-go v1.0.7
 	github.com/bits-and-blooms/bitset v1.7.0
 	github.com/cheggaaa/pb v1.0.29
 	github.com/davecgh/go-spew v1.1.1

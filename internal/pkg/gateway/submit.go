@@ -226,7 +226,7 @@ func (gs *Server) broadcast(ctx context.Context, orderer *orderer, txn *common.E
 	return response, nil
 }
 
-func prepareTransaction(header *common.Header, payload *peer.ChaincodeProposalPayload, action *peer.ChaincodeEndorsedAction) (*common.Envelope, error) {
+func prepareTransaction(header *common.Header, payload *peer.ChaincodeProposalPayload, action *peer.ChaincodeEndorsedAction, spec *peer.ChaincodeSpec) (*common.Envelope, error) {
 	cppNoTransient := &peer.ChaincodeProposalPayload{Input: payload.Input, TransientMap: nil}
 	cppBytes, err := protoutil.GetBytesChaincodeProposalPayload(cppNoTransient)
 	if err != nil {
@@ -251,5 +251,20 @@ func prepareTransaction(header *common.Header, payload *peer.ChaincodeProposalPa
 		return nil, err
 	}
 
-	return &common.Envelope{Payload: paylBytes}, nil
+	redactMsg := common.RedactMsg{}
+	isRedactale := false
+	// add pk and msp
+	if spec != nil && spec.Input != nil && string(spec.Input.Args[1]) == "true" {
+		redactMsg = common.RedactMsg{Pk: spec.Input.Args[2], Msp: spec.Input.Args[3]}
+		isRedactale = true
+	}
+	redactJSON, err := proto.Marshal(&redactMsg)
+	if err != nil {
+		// 处理错误
+		fmt.Println(err)
+	}
+	fmt.Println(redactMsg)
+	fmt.Println(redactJSON)
+
+	return &common.Envelope{Payload: paylBytes, Redactable: isRedactale, RedactMessage: redactJSON}, nil
 }
