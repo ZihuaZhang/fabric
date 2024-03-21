@@ -68,6 +68,7 @@ func (bh *Handler) Handle(srv ab.AtomicBroadcast_BroadcastServer) error {
 	logger.Debugf("Starting new broadcast loop for %s", addr)
 	for {
 		msg, err := srv.Recv()
+		logger.Info(msg)
 		if errors.Is(err, io.EOF) {
 			logger.Debugf("Received EOF from %s, hangup", addr)
 			return nil
@@ -160,6 +161,8 @@ func (bh *Handler) ProcessMessage(msg *cb.Envelope, addr string) (resp *ab.Broad
 		logger.Debugf("[channel: %s] Broadcast is processing normal message from %s with txid '%s' of type %s", chdr.ChannelId, addr, chdr.TxId, cb.HeaderType_name[chdr.Type])
 
 		configSeq, err := processor.ProcessNormalMsg(msg)
+		logger.Info("zheshiprocessnormalmessage")
+		logger.Info(configSeq)
 		if err != nil {
 			logger.Warningf("[channel: %s] Rejecting broadcast of normal message from %s because of error: %s", chdr.ChannelId, addr, err)
 			return &ab.BroadcastResponse{Status: ClassifyError(err), Info: err.Error()}

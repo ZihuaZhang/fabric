@@ -31,10 +31,12 @@ func (bc *blockCreator) createNextBlock(envs []*cb.Envelope) *cb.Block {
 	data := &cb.BlockData{
 		Data: make([][]byte, len(envs)),
 	}
+	bc.logger.Info(envs[0])
 	var dataHash []byte
 	for i, env := range envs {
 		var err0 error
 		data.Data[i], err0 = proto.Marshal(env)
+		bc.logger.Info(data.Data[i])
 		if err0 != nil {
 			return nil
 		}
