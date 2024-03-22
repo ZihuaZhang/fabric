@@ -81,20 +81,18 @@ func ComputeBlockDataHash(b *cb.BlockData) []byte {
 	for _, data := range b.Data {
 		env := cb.Envelope{}
 		err := proto.Unmarshal(data, &env)
-		fmt.Println("envelope:", env)
 		if err != nil {
 			return nil
 		}
 		if env.Redactable {
 			redactMsg := cb.RedactMsg{}
 			err := proto.Unmarshal(env.RedactMessage, &redactMsg)
-			fmt.Println("redactMsg:", redactMsg)
+
 			if err != nil {
 				return nil
 			}
 			fameCipher := FAMECipher{}
 			err2 := json.Unmarshal(redactMsg.FameCipher, &fameCipher)
-			fmt.Println("fameCipher:", fameCipher)
 			if err2 != nil {
 				return nil
 			}

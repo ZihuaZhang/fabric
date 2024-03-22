@@ -67,7 +67,7 @@ func (bc *blockCreator) createNextBlock(envs []*cb.Envelope) *cb.Block {
 			}
 			redactMsg.FameCipher = fameCipherBytes
 			env.RedactMessage, _ = proto.Marshal(&redactMsg)
-			bc.logger.Info(redactMsg)
+			data.Data[i], err0 = proto.Marshal(env)
 		} else {
 			hash := sha256.Sum256(data.Data[i])
 			dataHash = append(dataHash, hash[:]...)
