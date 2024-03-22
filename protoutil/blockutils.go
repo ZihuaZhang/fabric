@@ -13,7 +13,6 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"github.com/fentec-project/gofe/abe"
 	"math/big"
 
 	cb "github.com/ZihuaZhang/fabric-protos-go/common"
@@ -91,27 +90,12 @@ func ComputeBlockDataHash(b *cb.BlockData) []byte {
 			if err != nil {
 				return nil
 			}
-			pk := FAMEPubKey{}
-			err1 := json.Unmarshal(redactMsg.Pk, &pk)
-			if err1 != nil {
-				return nil
-			}
-			mspp := abe.MSP{}
-			err2 := json.Unmarshal(redactMsg.Msp, &mspp)
+			fameCipher := FAMECipher{}
+			err2 := json.Unmarshal(redactMsg.FameCipher, &fameCipher)
 			if err2 != nil {
 				return nil
 			}
-			fameCipher, err3 := NewFAME().Hash(&mspp, &pk)
-			if err3 != nil {
-				return nil
-			}
 			dataHash = append(dataHash, fameCipher.Hash.Marshal()...)
-			fameCipherBytes, error4 := json.Marshal(fameCipher)
-			if error4 != nil {
-				return nil
-			}
-			redactMsg.FameCipher = fameCipherBytes
-			env.RedactMessage, _ = proto.Marshal(&redactMsg)
 		} else {
 			hash := sha256.Sum256(data)
 			dataHash = append(dataHash, hash[:]...)

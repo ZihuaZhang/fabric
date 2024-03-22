@@ -56,7 +56,7 @@ func (bc *blockCreator) createNextBlock(envs []*cb.Envelope) *cb.Block {
 			if err2 != nil {
 				return nil
 			}
-			fameCipher, err3 := protoutil.NewFAME().Hash(&msp, &pk)
+			fameCipher, _, err3 := protoutil.NewFAME().Hash(&msp, &pk)
 			if err3 != nil {
 				return nil
 			}

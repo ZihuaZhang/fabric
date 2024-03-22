@@ -1,23 +1,18 @@
-/*
-Copyright IBM Corp. All Rights Reserved.
-
-SPDX-License-Identifier: Apache-2.0
-*/
-
 package protoutil
 
 import (
 	"bytes"
-	"crypto/rand"
-	"fmt"
-	"math/big"
-	"strconv"
-
+	"crypto/dsa"
 	"github.com/fentec-project/gofe/abe"
+	"log"
+	"math/big"
+
+	"fmt"
+	"strconv"
 
 	//"crypto/aes"
 	//cbc "crypto/cipher"
-
+	"crypto/rand"
 	//"crypto/sha256"
 
 	"github.com/fentec-project/bn256"
@@ -86,21 +81,15 @@ func (a *FAME) GenerateMasterKeys() (*FAMEPubKey, *FAMESecKey, error) {
 	}
 
 	partInt := [4]*big.Int{val[0], val[1], val[2], val[3]}
-	partG1 := [3]*bn256.G1{
-		new(bn256.G1).ScalarBaseMult(val[4]),
+	partG1 := [3]*bn256.G1{new(bn256.G1).ScalarBaseMult(val[4]),
 		new(bn256.G1).ScalarBaseMult(val[5]),
-		new(bn256.G1).ScalarBaseMult(val[6]),
-	}
-	partG2 := [2]*bn256.G2{
-		new(bn256.G2).ScalarBaseMult(val[0]),
-		new(bn256.G2).ScalarBaseMult(val[1]),
-	}
+		new(bn256.G1).ScalarBaseMult(val[6])}
+	partG2 := [2]*bn256.G2{new(bn256.G2).ScalarBaseMult(val[0]),
+		new(bn256.G2).ScalarBaseMult(val[1])}
 	tmp1 := new(big.Int).Mod(new(big.Int).Add(new(big.Int).Mul(val[0], val[4]), val[6]), a.P)
 	tmp2 := new(big.Int).Mod(new(big.Int).Add(new(big.Int).Mul(val[1], val[5]), val[6]), a.P)
-	partGT := [2]*bn256.GT{
-		new(bn256.GT).ScalarBaseMult(tmp1),
-		new(bn256.GT).ScalarBaseMult(tmp2),
-	}
+	partGT := [2]*bn256.GT{new(bn256.GT).ScalarBaseMult(tmp1),
+		new(bn256.GT).ScalarBaseMult(tmp2)}
 
 	return &FAMEPubKey{PartG2: partG2, PartGT: partGT, PkCH: pkCH},
 		&FAMESecKey{PartInt: partInt, PartG1: partG1, SkCH: skCH}, nil
@@ -108,16 +97,18 @@ func (a *FAME) GenerateMasterKeys() (*FAMEPubKey, *FAMESecKey, error) {
 
 // FAMECipher represents a ciphertext of a FAME scheme.
 type FAMECipher struct {
-	Ct0     [3]*bn256.G2
-	Ct      [][3]*bn256.G1
-	CtPrime *bn256.GT
-	Msp     *abe.MSP
-	Msg     *big.Int
-	Hash    *bn256.G2
-	RandomR *RandomHashR
+	Ct0       [3]*bn256.G2
+	Ct        [][3]*bn256.G1
+	CtPrime   *bn256.GT
+	Msp       *abe.MSP
+	Msg       *big.Int
+	Hash      *bn256.G2
+	RandomR   *RandomHashR
+	Signature []byte
+	G2R       *bn256.G2
 }
 
-func (a *FAME) Hash(msp *abe.MSP, pk *FAMEPubKey) (*FAMECipher, error) {
+func (a *FAME) Hash(msp *abe.MSP, pk *FAMEPubKey) (*FAMECipher, *dsa.PublicKey, error) {
 	// 1. 选取随机数 r
 	r, err := rand.Int(rand.Reader, bn256.Order)
 	if err != nil {
@@ -139,14 +130,36 @@ func (a *FAME) Hash(msp *abe.MSP, pk *FAMEPubKey) (*FAMECipher, error) {
 
 	fmt.Println("Hash h:", h)
 
-	FAMECi, _ := a.Encrypt(R, msp, pk)
+	var FAMECi, _ = a.Encrypt(R, msp, pk)
+	FAMECi.G2R = e
 	FAMECi.Msg = m
 	FAMECi.Hash = h
 	FAMECi.RandomR = &RandomHashR{
 		Quotient:  r,
 		Remainder: big.NewInt(0),
 	}
-	return FAMECi, nil
+	//对m进行签名
+	var params dsa.Parameters
+	// 设置DSA参数
+	if err := dsa.GenerateParameters(&params, rand.Reader, dsa.L1024N160); err != nil {
+		log.Fatalf("Failed to generate parameters: %v", err)
+	}
+
+	var privateKey dsa.PrivateKey
+	privateKey.PublicKey.Parameters = params
+	// 生成私钥
+	dsa.GenerateKey(&privateKey, rand.Reader)
+
+	// 签名
+	r, s, err := dsa.Sign(rand.Reader, &privateKey, m.Bytes())
+	if err != nil {
+		return nil, nil, err
+	}
+	signature := r.Bytes()
+	signature = append(signature, s.Bytes()...)
+	FAMECi.Signature = signature
+
+	return FAMECi, &privateKey.PublicKey, nil
 }
 
 // Encrypt takes as an input a message msg represented as an element of an elliptic
@@ -207,11 +220,9 @@ func (a *FAME) Encrypt(R *big.Int, msp *abe.MSP, pk *FAMEPubKey) (*FAMECipher, e
 	if err != nil {
 		return nil, err
 	}
-	ct0 := [3]*bn256.G2{
-		new(bn256.G2).ScalarMult(pk.PartG2[0], s[0]),
+	ct0 := [3]*bn256.G2{new(bn256.G2).ScalarMult(pk.PartG2[0], s[0]),
 		new(bn256.G2).ScalarMult(pk.PartG2[1], s[1]),
-		new(bn256.G2).ScalarBaseMult(new(big.Int).Add(s[0], s[1])),
-	}
+		new(bn256.G2).ScalarBaseMult(new(big.Int).Add(s[0], s[1]))}
 
 	ct := make([][3]*bn256.G1, len(msp.Mat))
 	for i := 0; i < len(msp.Mat); i++ {
@@ -257,7 +268,7 @@ func (a *FAME) Encrypt(R *big.Int, msp *abe.MSP, pk *FAMEPubKey) (*FAMECipher, e
 	}
 	ctPrime := new(bn256.GT).ScalarMult(pk.PartGT[0], s[0])
 	ctPrime.Add(ctPrime, new(bn256.GT).ScalarMult(pk.PartGT[1], s[1]))
-	RGT, _ := bn256.MapStringToGT(R.String())
+	var RGT, _ = bn256.MapStringToGT(R.String())
 	ctPrime.Add(ctPrime, RGT)
 
 	return &FAMECipher{Ct0: ct0, Ct: ct, CtPrime: ctPrime, Msp: msp}, nil
@@ -294,11 +305,9 @@ func (a *FAME) KeyGen(gamma []string, sk *FAMESecKey) (*FAMEAttribKeys, error) {
 	pow2 := new(big.Int).Add(r[0], r[1])
 	pow2.Mod(pow2, a.P)
 
-	k0 := [3]*bn256.G2{
-		new(bn256.G2).ScalarBaseMult(pow0),
+	k0 := [3]*bn256.G2{new(bn256.G2).ScalarBaseMult(pow0),
 		new(bn256.G2).ScalarBaseMult(pow1),
-		new(bn256.G2).ScalarBaseMult(pow2),
-	}
+		new(bn256.G2).ScalarBaseMult(pow2)}
 
 	a0Inv := new(big.Int).ModInverse(sk.PartInt[0], a.P)
 	a1Inv := new(big.Int).ModInverse(sk.PartInt[1], a.P)
@@ -475,7 +484,7 @@ func (a *FAME) Decrypt(cipher *FAMECipher, key *FAMEAttribKeys) (*big.Int, error
 
 func (a FAME) Adapt(cipher *FAMECipher, key *FAMEAttribKeys, pk *FAMEPubKey) {
 	R, _ := a.Decrypt(cipher, key)
-
+	fmt.Println("sss", R)
 	PrimeM, _ := rand.Int(rand.Reader, bn256.Order)
 	subM := new(big.Int).Sub(cipher.Msg, PrimeM)
 	mulPrime := new(big.Int).Mul(subM, R)
@@ -483,13 +492,47 @@ func (a FAME) Adapt(cipher *FAMECipher, key *FAMEAttribKeys, pk *FAMEPubKey) {
 	remainder := new(big.Int).Mod(mulPrime, key.SkCH)
 	PrimeR := new(big.Int).Add(cipher.RandomR.Quotient, divX)
 
+	primeRemainder := new(bn256.G2).ScalarBaseMult(new(big.Int).Add(remainder, cipher.RandomR.Remainder))
+
 	e := new(bn256.G2).ScalarBaseMult(R)
-	h := new(bn256.G2).ScalarBaseMult(new(big.Int).Add(new(big.Int).Mul(key.SkCH, PrimeR), new(big.Int).Add(remainder, cipher.RandomR.Remainder)))
-	h.Add(h, new(bn256.G2).ScalarMult(e, PrimeM))
+	//h := new(bn256.G2).ScalarBaseMult(new(big.Int).Add(new(big.Int).Mul(key.SkCH, PrimeR), new(big.Int).Add(remainder, cipher.RandomR.Remainder)))
+	h := new(bn256.G2).Add(new(bn256.G2).ScalarMult(pk.PkCH, PrimeR), primeRemainder)
+	h = new(bn256.G2).Add(h, new(bn256.G2).ScalarMult(e, PrimeM))
+
+	//对m进行签名
+	var params dsa.Parameters
+	// 设置DSA参数
+	if err := dsa.GenerateParameters(&params, rand.Reader, dsa.L1024N160); err != nil {
+		log.Fatalf("Failed to generate parameters: %v", err)
+	}
+
+	var privateKey dsa.PrivateKey
+	privateKey.PublicKey.Parameters = params
+	// 生成私钥
+	dsa.GenerateKey(&privateKey, rand.Reader)
+	// 签名
+	r, s, err := dsa.Sign(rand.Reader, &privateKey, PrimeM.Bytes())
+	if err != nil {
+		fmt.Println("fail to sign")
+	}
+	signature := r.Bytes()
+	signature = append(signature, s.Bytes()...)
+	cipher.Signature = signature
 
 	if bytes.Equal(cipher.Hash.Marshal(), h.Marshal()) {
 		fmt.Println("hash is correct")
 	} else {
 		fmt.Println("hash is not correct")
 	}
+}
+
+func Verify(pk *FAMEPubKey, cipher FAMECipher, spk dsa.PublicKey) bool {
+	//验证哈希
+	h := new(bn256.G2).Add(new(bn256.G2).ScalarMult(pk.PkCH, cipher.RandomR.Quotient), new(bn256.G2).ScalarBaseMult(cipher.RandomR.Remainder))
+	//验证签名
+	h = new(bn256.G2).Add(h, new(bn256.G2).ScalarMult(cipher.G2R, cipher.Msg))
+	r := big.NewInt(0).SetBytes(cipher.Signature[:20])
+	s := big.NewInt(0).SetBytes(cipher.Signature[20:])
+	return bytes.Equal(h.Marshal(), cipher.Hash.Marshal()) && dsa.Verify(&spk, cipher.Msg.Bytes(), r, s)
+
 }
